@@ -3,6 +3,7 @@ import 'package:phenom_fitness/pages/account.dart';
 import 'package:phenom_fitness/pages/home.dart';
 import 'package:phenom_fitness/pages/message.dart';
 import 'package:phenom_fitness/pages/settings.dart';
+import 'package:phenom_fitness/widgets/neumorphic_design.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Message extends StatefulWidget {
-  const Message({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<Message> createState() => _MessageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _MessageState extends State<Message> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
         child: Text(
-          'Chat',
+          'Hello',
           style: TextStyle(
             fontSize: 50,
             fontWeight: FontWeight.bold,

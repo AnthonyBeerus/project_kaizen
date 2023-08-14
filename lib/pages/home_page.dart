@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color(0xFFFEACDA3),
         color: const Color(0xFFFD6AE7B),
         onTap: _navigateBottomBar,
-        animationDuration: const Duration(milliseconds: 300),
+        animationDuration: const Duration(milliseconds: 200),
         index: _selectedIndex,
         items: const [
           Icon(Icons.home),

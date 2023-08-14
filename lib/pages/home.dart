@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
     return const Scaffold(
       body: Center(
         child: Text(
-          'Hello',
+          'Home Page',
           style: TextStyle(
             fontSize: 50,
             fontWeight: FontWeight.bold,

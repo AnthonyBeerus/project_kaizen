@@ -1,9 +1,12 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:phenom_fitness/pages/account.dart';
 import 'package:phenom_fitness/pages/home.dart';
 import 'package:phenom_fitness/pages/message.dart';
 import 'package:phenom_fitness/pages/settings.dart';
-import 'package:phenom_fitness/widgets/neumorphic_design.dart';
+//import 'package:phenom_fitness/widgets/neumorphic_design.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,17 +33,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: const Color(0xFFFEACDA3),
+        color: const Color(0xFFFD6AE7B),
         onTap: _navigateBottomBar,
-        currentIndex: _selectedIndex,
-        type: BottomNavigationBarType.fixed,
+        animationDuration: const Duration(milliseconds: 300),
+        index: _selectedIndex,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'AI Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
+          Icon(Icons.home),
+          Icon(Icons.message),
+          Icon(Icons.person),
+          Icon(Icons.settings),
         ],
       ),
     );

@@ -10,8 +10,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      body: const Center(
         child: Text(
           'Hello',
           style: TextStyle(
@@ -20,6 +20,15 @@ class _HomePageState extends State<HomePage> {
             fontFamily: 'Roboto',
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Home'),
+        ],
       ),
     );
   }

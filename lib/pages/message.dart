@@ -16,16 +16,26 @@ class _MessageState extends State<Message> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: SpeedDial(
-        backgroundColor: secondaryColor,
-        animatedIcon: AnimatedIcons.view_list,
-        overlayOpacity: 0.4,
-        children: [
-          SpeedDialChild(
-            backgroundColor: thirdColor,
-            child: const Icon(Icons.help)
-          ),
-        ],
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SpeedDial(
+          backgroundColor: secondaryColor,
+          animatedIcon: AnimatedIcons.view_list,
+          overlayOpacity: 0.4,
+          spacing: 10,
+          spaceBetweenChildren: 10,
+          children: [
+            SpeedDialChild(
+              backgroundColor: secondaryColor,
+              child:
+               const Icon(Icons.help, color: Colors.white,),
+            ),
+            SpeedDialChild(
+              backgroundColor: secondaryColor,
+              child: const Icon(Icons.history, color: Colors.white,)
+            )
+          ],
+        ),
       ),
       backgroundColor: primaryColor,
       body: Center(

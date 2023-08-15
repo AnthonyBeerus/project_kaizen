@@ -2,7 +2,7 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:phenom_fitness/pages/account.dart';
+import 'package:phenom_fitness/pages/workout.dart';
 import 'package:phenom_fitness/pages/home.dart';
 import 'package:phenom_fitness/pages/message.dart';
 import 'package:phenom_fitness/pages/settings.dart';
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const Home(),
     const Message(),
-    const Account(),
+    const Workout(),
     const Settings(),
   ];
   @override
@@ -45,9 +45,9 @@ class _HomePageState extends State<HomePage> {
         height: 60,
         items: [
           Icon(Icons.home, color: primaryColor,),
-          Icon(Icons.message, color: primaryColor),
+          Icon(Icons.message_outlined, color: primaryColor),
+          Icon(Icons.fitness_center, color: primaryColor),
           Icon(Icons.person, color: primaryColor),
-          Icon(Icons.settings, color: primaryColor),
         ],
       ),
     );

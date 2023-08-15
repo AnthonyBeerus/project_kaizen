@@ -3,21 +3,21 @@
 import 'package:flutter/material.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 
-class Account extends StatefulWidget {
-  const Account({super.key});
+class Workout extends StatefulWidget {
+  const Workout({super.key});
 
   @override
-  State<Account> createState() => _AccountState();
+  State<Workout> createState() => _WorkoutState();
 }
 
-class _AccountState extends State<Account> {
+class _WorkoutState extends State<Workout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
       body: Center(
         child: Text(
-          'Account',
+          'Workouts',
           style: TextStyle(
             color: secondaryColor,
             fontSize: 50,

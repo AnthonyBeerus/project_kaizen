@@ -6,6 +6,7 @@ import 'package:phenom_fitness/pages/account.dart';
 import 'package:phenom_fitness/pages/home.dart';
 import 'package:phenom_fitness/pages/message.dart';
 import 'package:phenom_fitness/pages/settings.dart';
+import 'package:phenom_fitness/themes/colors.dart';
 //import 'package:phenom_fitness/widgets/neumorphic_design.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,11 +37,12 @@ class _HomePageState extends State<HomePage> {
       
       body: _pages[_selectedIndex],
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: const Color(0xFFFEACDA3),
-        color: const Color(0xFFFD6AE7B),
+        backgroundColor: primaryColor,
+        color: secondaryColor,
         onTap: _navigateBottomBar,
         animationDuration: const Duration(milliseconds: 200),
         index: _selectedIndex,
+        height: 60,
         items: const [
           Icon(Icons.home),
           Icon(Icons.message),

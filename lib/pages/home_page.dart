@@ -43,11 +43,11 @@ class _HomePageState extends State<HomePage> {
         animationDuration: const Duration(milliseconds: 200),
         index: _selectedIndex,
         height: 60,
-        items: const [
-          Icon(Icons.home),
-          Icon(Icons.message),
-          Icon(Icons.person),
-          Icon(Icons.settings),
+        items: [
+          Icon(Icons.home, color: primaryColor,),
+          Icon(Icons.message, color: primaryColor),
+          Icon(Icons.person, color: primaryColor),
+          Icon(Icons.settings, color: primaryColor),
         ],
       ),
     );

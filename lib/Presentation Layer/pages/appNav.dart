@@ -37,7 +37,7 @@ class _AppNavState extends State<AppNav> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: primaryColor,
-        color: secondaryColor,
+        color: textColor,
         onTap: _navigateBottomBar,
         animationDuration: const Duration(milliseconds: 200),
         index: _selectedIndex,

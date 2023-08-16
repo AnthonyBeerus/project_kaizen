@@ -14,17 +14,61 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
-      body: Center(
-        child: Text(
-          'Home Page',
-          style: TextStyle(
-            color: secondaryColor,
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Roboto',
+      backgroundColor: backgroundColor,
+      body: CustomScrollView(
+        slivers: [
+
+          //Sliver App Bar
+          SliverAppBar(
+            leading: Icon(Icons.menu, color: secondaryColor,),
+            backgroundColor: thirdColor,
+            pinned: true,
+            title: Text(
+              'H E L L O',
+              style: TextStyle(
+                color: textColor, 
+                fontFamily: 'Roboto',
+                fontSize: 30, 
+              ),
+            ),
+            expandedHeight: 250,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                color: textColor,
+              ),
+              title: const Text('H E L L O'),
+            ),
           ),
-        ),
+          //Sliver items
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                height: 400,
+                color: thirdColor,
+              ),  
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                height: 400,
+                color: thirdColor,
+              ),  
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                height: 400,
+                color: thirdColor,
+              ),  
+            ),
+          ),
+
+        ],
       ),
     );
   }

@@ -9,14 +9,14 @@ import 'package:phenom_fitness/Presentation%20Layer/pages/settings.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 //import 'package:phenom_fitness/widgets/neumorphic_design.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class AppNav extends StatefulWidget {
+  const AppNav({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AppNav> createState() => _AppNavState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AppNavState extends State<AppNav> {
   int _selectedIndex = 0;
 
   void _navigateBottomBar(int index) {

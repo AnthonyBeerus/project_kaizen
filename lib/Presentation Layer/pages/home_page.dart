@@ -2,10 +2,10 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:phenom_fitness/pages/workout.dart';
-import 'package:phenom_fitness/pages/home.dart';
-import 'package:phenom_fitness/pages/message.dart';
-import 'package:phenom_fitness/pages/settings.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/workout.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/home.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/message.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/settings.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 //import 'package:phenom_fitness/widgets/neumorphic_design.dart';
 

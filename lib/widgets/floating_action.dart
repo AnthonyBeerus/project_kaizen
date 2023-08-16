@@ -3,14 +3,16 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 
 class FloatingAction extends StatefulWidget {
-  
-  final Color background;
+  final Color backgroundColor;
   final Color childIconColor;
+  final AnimatedIconData animatedIcon;
   final List<SpeedDialChild> children;
 
-  const FloatingAction({super.key, 
-    required this.background,
+  const FloatingAction({
+    super.key,
+    required this.backgroundColor,
     required this.childIconColor,
+    required this.animatedIcon,
     required this.children,
   });
 
@@ -22,17 +24,16 @@ class _FloatingActionState extends State<FloatingAction> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SpeedDial(
-          backgroundColor: secondaryColor,
-          animatedIcon: AnimatedIcons.view_list,
-          overlayOpacity: 0.4,
-          spacing: 10,
-          spaceBetweenChildren: 10,
-          children: widget.children,
-        ),
+      floatingActionButton: SpeedDial(
+        backgroundColor: secondaryColor,
+        overlayColor: Colors.black,
+        overlayOpacity: 0.5,
+        spacing: 10,
+        spaceBetweenChildren: 10,
+        animatedIcon: widget.animatedIcon,
+        children: widget.children,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

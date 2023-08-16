@@ -23,6 +23,12 @@ class _HomeState extends State<Home> {
             leading: Icon(Icons.menu, color: secondaryColor,),
             backgroundColor: thirdColor,
             pinned: true,
+
+            expandedHeight: 250,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                color: backgroundColor,
+              ),
             title: Text(
               'H E L L O',
               style: TextStyle(
@@ -31,12 +37,6 @@ class _HomeState extends State<Home> {
                 fontSize: 30, 
               ),
             ),
-            expandedHeight: 250,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                color: textColor,
-              ),
-              title: const Text('H E L L O'),
             ),
           ),
           //Sliver items

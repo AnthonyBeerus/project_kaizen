@@ -27,9 +27,8 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     const Home(),
-    const MessageScreen(),
     const Workout(),
-    const Settings(),
+    const Settings()
   ];
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,6 @@ class _HomePageState extends State<HomePage> {
         height: 60,
         items: [
           Icon(Icons.home, color: primaryColor,),
-          Icon(Icons.message_outlined, color: primaryColor),
           Icon(Icons.fitness_center, color: primaryColor),
           Icon(Icons.person, color: primaryColor),
         ],

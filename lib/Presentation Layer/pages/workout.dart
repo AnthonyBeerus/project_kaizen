@@ -22,7 +22,7 @@ class _WorkoutState extends State<Workout> {
         title: Text(
           'W O R K O U T S',
           style: TextStyle(
-            color: secondaryColor,
+            color: textColor,
             fontSize: 20,
             fontWeight: FontWeight.bold,
             fontFamily: 'Roboto',
@@ -34,7 +34,7 @@ class _WorkoutState extends State<Workout> {
         child: Text(
           'Workout',
           style: TextStyle(
-            color: secondaryColor,
+            color: textColor,
             fontSize: 50,
             fontWeight: FontWeight.bold,
             fontFamily: 'Roboto',

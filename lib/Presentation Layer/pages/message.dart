@@ -20,7 +20,7 @@ class _MessageScreenState extends State<MessageScreen> {
         child: Text(
           'Chat',
           style: TextStyle(
-            color: secondaryColor,
+            color: textColor,
             fontSize: 50,
             fontWeight: FontWeight.bold,
             fontFamily: 'Roboto',

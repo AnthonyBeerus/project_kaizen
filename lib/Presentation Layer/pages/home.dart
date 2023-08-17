@@ -14,20 +14,21 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: secondaryColor,
       body: CustomScrollView(
         slivers: [
-
           //Sliver App Bar
           SliverAppBar(
-            leading: Icon(Icons.menu, color: secondaryColor,),
-            backgroundColor: thirdColor,
+            leading: const Icon(
+              Icons.menu,
+              color: Colors.black,),
+            backgroundColor: secondaryColor,
             pinned: true,
 
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                color: backgroundColor,
+                color: secondaryColor,
               ),
             title: Text(
               'H E L L O',
@@ -45,7 +46,7 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.all(20.0),
               child: Container(
                 height: 400,
-                color: thirdColor,
+                color: Colors.black,
               ),  
             ),
           ),
@@ -54,7 +55,7 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.all(20.0),
               child: Container(
                 height: 400,
-                color: thirdColor,
+                color: Colors.black,
               ),  
             ),
           ),
@@ -63,7 +64,7 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.all(20.0),
               child: Container(
                 height: 400,
-                color: thirdColor,
+                color: Colors.black,
               ),  
             ),
           ),

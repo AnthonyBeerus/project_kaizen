@@ -19,7 +19,7 @@ class _SettingsState extends State<Settings> {
         child: Text(
           'Settings',
           style: TextStyle(
-            color: secondaryColor,
+            color: textColor,
             fontSize: 50,
             fontWeight: FontWeight.bold,
             fontFamily: 'Roboto',

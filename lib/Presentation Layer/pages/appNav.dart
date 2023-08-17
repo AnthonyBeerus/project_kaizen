@@ -2,6 +2,7 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/workout.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/home.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/message.dart';
@@ -35,19 +36,37 @@ class _AppNavState extends State<AppNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: backgroundColor,
-        color: textColor,
-        onTap: _navigateBottomBar,
-        animationDuration: const Duration(milliseconds: 200),
-        index: _selectedIndex,
-        height: 60,
-        items: [
-          Icon(Icons.home, color: primaryColor,),
-          Icon(Icons.fitness_center, color: primaryColor),
-          Icon(Icons.chat_bubble, color: primaryColor,),
-          Icon(Icons.person, color: primaryColor),
-        ],
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 6.0),
+          child: GNav(
+            gap: 10,
+            backgroundColor: secondaryColor,
+            color: Colors.black,
+            activeColor: Colors.white,
+            onTabChange: _navigateBottomBar,
+            tabBackgroundColor: Colors.black,
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.fitness_center,
+                text: 'Gym',
+              ),
+              GButton(
+                icon: Icons.assistant_outlined,
+                text: 'Assistent',
+              ),
+              GButton(
+                icon: Icons.person,
+                text: 'profile',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

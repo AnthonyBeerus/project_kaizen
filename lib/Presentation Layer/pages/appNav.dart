@@ -1,12 +1,12 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
 
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:phenom_fitness/Presentation%20Layer/pages/workout.dart';
-import 'package:phenom_fitness/Presentation%20Layer/pages/home.dart';
-import 'package:phenom_fitness/Presentation%20Layer/pages/message.dart';
-import 'package:phenom_fitness/Presentation%20Layer/pages/settings.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/workout_screen.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/home_screen.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/message_screen.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/settings_screen.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 //import 'package:phenom_fitness/widgets/neumorphic_design.dart';
 
@@ -28,9 +28,9 @@ class _AppNavState extends State<AppNav> {
 
   final List<Widget> _pages = [
     const Home(),
-    const Workout(),
+    const WorkoutScreen(),
     const MessageScreen(),
-    const Settings()
+    const SettingsScreen()
   ];
   @override
   Widget build(BuildContext context) {

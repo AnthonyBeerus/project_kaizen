@@ -5,14 +5,14 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 import 'package:phenom_fitness/Presentation%20Layer/widgets/floating_action.dart';
 
-class Workout extends StatefulWidget {
-  const Workout({super.key});
+class WorkoutScreen extends StatefulWidget {
+  const WorkoutScreen({super.key});
 
   @override
-  State<Workout> createState() => _WorkoutState();
+  State<WorkoutScreen> createState() => _WorkoutScreenState();
 }
 
-class _WorkoutState extends State<Workout> {
+class _WorkoutScreenState extends State<WorkoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

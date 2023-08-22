@@ -39,8 +39,10 @@ class _AppNavState extends State<AppNav> {
       bottomNavigationBar: Container(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 6.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 6.0),
           child: GNav(
+            duration: const Duration(milliseconds: 500),
+            tabBorderRadius: 70,
             gap: 10,
             backgroundColor: secondaryColor,
             color: Colors.black,
@@ -50,19 +52,15 @@ class _AppNavState extends State<AppNav> {
             tabs: const [
               GButton(
                 icon: Icons.home,
-                text: 'Home',
               ),
               GButton(
                 icon: Icons.fitness_center,
-                text: 'Gym',
               ),
               GButton(
                 icon: Icons.assistant_outlined,
-                text: 'Assistent',
               ),
               GButton(
                 icon: Icons.person,
-                text: 'profile',
               ),
             ],
           ),

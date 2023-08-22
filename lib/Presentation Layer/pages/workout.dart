@@ -17,7 +17,7 @@ class _WorkoutState extends State<Workout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: secondaryColor,
         elevation: 0,
         title: Text(
           'W O R K O U T S',
@@ -29,7 +29,7 @@ class _WorkoutState extends State<Workout> {
           ),
         ),
       ),
-      backgroundColor: primaryColor,
+      backgroundColor: secondaryColor,
       body: Center(
         child: Text(
           'Workout',

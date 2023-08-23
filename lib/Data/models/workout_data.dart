@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:phenom_fitness/Domain/Models/exercise_class.dart';
 import 'package:phenom_fitness/Domain/Models/workout_class.dart';
 
-class WorkoutData {
+class WorkoutData extends ChangeNotifier {
   List<WorkoutClass> workoutList = [
     WorkoutClass(
       name: 'Upper Body',
@@ -32,6 +33,7 @@ class WorkoutData {
   void addWorkout(String name) {
     //add workout with a blank list of exercises
     workoutList.add(WorkoutClass(name: name, exercises: []));
+    notifyListeners();
   }
 
   //add an exercise to a workout
@@ -47,6 +49,7 @@ class WorkoutData {
     releventWorkout.exercises.add(
       ExerciseClass(name: exerciseName, weight: weight, sets: sets, reps: reps),
     );
+    notifyListeners();
   }
 
   //check off workout
@@ -56,6 +59,7 @@ class WorkoutData {
         getReleventExercise(workoutName, exerciseName);
     //check off the boolean to show user completed the workout
     releventExercise.isCompleted = !releventExercise.isCompleted;
+    notifyListeners();
   }
 
   //return relevent workout object, given the workout name

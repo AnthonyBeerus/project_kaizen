@@ -53,11 +53,12 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           ),
         ),
         floatingActionButton: SizedBox(
-          height: 60,
-          width: 60,
+          height: 100,
+          width: 100,
           child: Container(
             margin: const EdgeInsets.only(right: 10, bottom: 20),
             child: SpeedDial(
+              label: const Text('Create'),
               animatedIcon: AnimatedIcons.menu_close,
               backgroundColor: thirdColor,
               overlayColor: secondaryColor,

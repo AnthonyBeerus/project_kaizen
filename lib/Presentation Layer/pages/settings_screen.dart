@@ -1,6 +1,7 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -58,6 +59,35 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ],
         ),
+      floatingActionButton: SizedBox(
+        height: 60,
+        width: 60,
+        child: Container(
+          margin: const EdgeInsets.only(right: 10, bottom: 20),
+          child: SpeedDial(
+            animatedIcon: AnimatedIcons.menu_close,
+            backgroundColor: thirdColor,
+            overlayColor: secondaryColor,
+            overlayOpacity: 0.6,
+            elevation: 1,
+            spaceBetweenChildren: 12,
+            children: [
+              SpeedDialChild(
+                child: const Icon(Icons.add_chart_outlined),
+                label: ('Add New Routine'),
+                backgroundColor: thirdColor,
+                elevation: 1,
+              ),
+              SpeedDialChild(
+                child: const Icon(Icons.hourglass_empty),
+                label: ('Start Empty Workout'),
+                backgroundColor: thirdColor,
+                elevation: 1,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

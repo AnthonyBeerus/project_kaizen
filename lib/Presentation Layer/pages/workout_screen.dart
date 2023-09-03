@@ -14,9 +14,54 @@ class WorkoutScreen extends StatefulWidget {
 }
 
 class _WorkoutScreenState extends State<WorkoutScreen> {
+  final newWorkoutNameController = TextEditingController();
+  //Create new workout
   void createNewWorkout() {
-
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Create New Routine"),
+        content: TextField(
+          controller: newWorkoutNameController,
+        ),
+        actions: [
+          //save button
+          MaterialButton(
+            onPressed: saveWorkout,
+            child: const Text('Save'),
+          ),
+          //cancel button
+          MaterialButton(
+            onPressed: cancelWorkout,
+            child: const Text('Cancel'),
+          ),
+        ],
+      ),
+    );
   }
+
+  //Save Workout
+  void saveWorkout() {
+    //get workout name from text controller
+    String newWorkoutName = newWorkoutNameController.text;
+    //add workout to workoutdata list
+    Provider.of<WorkoutData>(context, listen: false).addWorkout(newWorkoutName);
+    // remove dialog box after saving
+    Navigator.pop(context);
+    clear();
+  }
+
+  //Cancel Workout
+  void cancelWorkout() {
+    // remove dialog box after canceling
+    Navigator.pop(context);
+    clear();
+  }
+  //clear the controllers
+  void clear() {
+    newWorkoutNameController.clear();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -68,11 +113,11 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               animatedIconTheme: const IconThemeData(color: Colors.black),
               children: [
                 SpeedDialChild(
-                  child: const Icon(Icons.add_chart_outlined),
-                  label: ('Add New Routine'),
-                  backgroundColor: thirdColor,
-                  elevation: 1,
-                ),
+                    child: const Icon(Icons.add_chart_outlined),
+                    label: ('Add New Routine'),
+                    backgroundColor: thirdColor,
+                    elevation: 1,
+                    onTap: createNewWorkout),
                 SpeedDialChild(
                   child: const Icon(Icons.hourglass_empty),
                   label: ('Start Empty Workout'),

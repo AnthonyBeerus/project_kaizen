@@ -25,10 +25,10 @@ class _FloatingActionState extends State<FloatingAction> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: SpeedDial(
-        backgroundColor: secondaryColor,
+        backgroundColor: thirdColor,
         overlayColor: Colors.black,
         overlayOpacity: 0.5,
-        spacing: 10,
+        spacing: 1,
         spaceBetweenChildren: 10,
         animatedIcon: widget.animatedIcon,
         children: widget.children,

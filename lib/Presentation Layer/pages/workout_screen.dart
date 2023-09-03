@@ -105,7 +105,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             child: SpeedDial(
               label: const Text('Create'),
               foregroundColor: Colors.black,
-              animatedIcon: AnimatedIcons.menu_close,
+              animatedIcon: AnimatedIcons.add_event,
               backgroundColor: thirdColor,
               overlayColor: secondaryColor,
               overlayOpacity: 0.8,

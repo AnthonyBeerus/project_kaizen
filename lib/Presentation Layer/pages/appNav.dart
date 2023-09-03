@@ -2,9 +2,7 @@
 
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/workout_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/home_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/message_screen.dart';
@@ -42,10 +40,10 @@ class _AppNavState extends State<AppNav> {
         height: 60,
         onTap: _navigateBottomBar,
         items: const [
-          Icon(Icons.home),
+          Icon(Icons.home,),
           Icon(Icons.fitness_center),
           Icon(Icons.message_outlined),
-          Icon(Icons.person_2),
+          Icon(Icons.person_2,),
         ],
         color: thirdColor,
         backgroundColor: secondaryColor,

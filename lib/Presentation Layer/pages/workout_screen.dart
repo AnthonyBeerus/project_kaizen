@@ -104,10 +104,11 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             margin: const EdgeInsets.only(right: 10, bottom: 20),
             child: SpeedDial(
               label: const Text('Create'),
+              foregroundColor: Colors.black,
               animatedIcon: AnimatedIcons.menu_close,
               backgroundColor: thirdColor,
               overlayColor: secondaryColor,
-              overlayOpacity: 0.6,
+              overlayOpacity: 0.8,
               elevation: 1,
               spaceBetweenChildren: 12,
               animatedIconTheme: const IconThemeData(color: Colors.black),

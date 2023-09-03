@@ -52,27 +52,35 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             title: Text(value.getWorkoutList()[index].name),
           ),
         ),
-        floatingActionButton: SpeedDial(
-          animatedIcon: AnimatedIcons.menu_close,
-          backgroundColor: thirdColor,
-          overlayColor: secondaryColor,
-          overlayOpacity: 0.6,
-          elevation: 1,
-          spaceBetweenChildren: 12,
-          children: [
-            SpeedDialChild(
-              child: const Icon(Icons.add_chart_outlined),
-              label: ('Add New Routine'),
+        floatingActionButton: SizedBox(
+          height: 60,
+          width: 60,
+          child: Container(
+            margin: const EdgeInsets.only(right: 10, bottom: 20),
+            child: SpeedDial(
+              animatedIcon: AnimatedIcons.menu_close,
               backgroundColor: thirdColor,
+              overlayColor: secondaryColor,
+              overlayOpacity: 0.6,
               elevation: 1,
+              spaceBetweenChildren: 12,
+              animatedIconTheme: const IconThemeData(color: Colors.black),
+              children: [
+                SpeedDialChild(
+                  child: const Icon(Icons.add_chart_outlined),
+                  label: ('Add New Routine'),
+                  backgroundColor: thirdColor,
+                  elevation: 1,
+                ),
+                SpeedDialChild(
+                  child: const Icon(Icons.hourglass_empty),
+                  label: ('Start Empty Workout'),
+                  backgroundColor: thirdColor,
+                  elevation: 1,
+                ),
+              ],
             ),
-            SpeedDialChild(
-              child: const Icon(Icons.hourglass_empty),
-              label: ('Start Empty Workout'),
-              backgroundColor: thirdColor,
-              elevation: 1,
-            ),
-          ],
+          ),
         ),
       ),
     );

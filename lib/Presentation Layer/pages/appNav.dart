@@ -1,6 +1,8 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
 
 
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/workout_screen.dart';
@@ -36,36 +38,19 @@ class _AppNavState extends State<AppNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 6.0),
-          child: GNav(
-            duration: const Duration(milliseconds: 500),
-            tabBorderRadius: 70,
-            gap: 10,
-            backgroundColor: secondaryColor,
-            color: Colors.black,
-            activeColor: Colors.white,
-            onTabChange: _navigateBottomBar,
-            tabBackgroundColor: Colors.black,
-            tabs: const [
-              GButton(
-                icon: Icons.home,
-              ),
-              GButton(
-                icon: Icons.fitness_center,
-              ),
-              GButton(
-                icon: Icons.assistant_outlined,
-              ),
-              GButton(
-                icon: Icons.person,
-              ),
-            ],
-          ),
-        ),
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 60,
+        onTap: _navigateBottomBar,
+        items: const [
+          Icon(Icons.home),
+          Icon(Icons.fitness_center),
+          Icon(Icons.message_outlined),
+          Icon(Icons.person_2),
+        ],
+        color: thirdColor,
+        backgroundColor: secondaryColor,
+        animationDuration: const Duration(milliseconds: 200),
       ),
-    );
+    );  
   }
 }

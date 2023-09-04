@@ -19,37 +19,52 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   //go to workout page
   void goToRoutinePage(String workoutName) {
     Navigator.push(
-      context, 
-      MaterialPageRoute(
-        builder: (context) => Routine(
-          workoutName: workoutName),
-      )
-    );
+        context,
+        MaterialPageRoute(
+          builder: (context) => Routine(workoutName: workoutName),
+        ));
   }
 
   //Create new workout
-  void createNewWorkout() {
-    showDialog(
+  Future createNewWorkout(BuildContext context) {
+    return showModalBottomSheet(
+      backgroundColor: secondaryColor,
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Create New Routine"),
-        content: TextField(
-          controller: newWorkoutNameController,
+      builder: (context) => Container(
+        padding: const EdgeInsets.all(16),
+        height: 500,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              "Create New Workout",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Roboto",
+              ),
+            ),
+            TextField(
+              controller: newWorkoutNameController,
+              decoration: const InputDecoration(
+                labelText: 'Routine Name',
+              ),
+            ),
+          ],
         ),
-        actions: [
-          //save button
-          MaterialButton(
-            onPressed: saveWorkout,
-            child: const Text('Save'),
-          ),
-          //cancel button
-          MaterialButton(
-            onPressed: cancelWorkout,
-            child: const Text('Cancel'),
-          ),
-        ],
       ),
     );
+  }
+
+  void startEmptyWorkout() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return const SizedBox(
+            height: 500,
+            child: Text('New Workout'),
+          );
+        });
   }
 
   //Save Workout
@@ -109,10 +124,9 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           itemBuilder: (context, index) => ListTile(
             title: Text(value.getWorkoutList()[index].name),
             trailing: IconButton(
-              icon: const Icon(Icons.arrow_circle_right),
-              onPressed: () => 
-                goToRoutinePage(value.getWorkoutList()[index].name)
-            ),
+                icon: const Icon(Icons.arrow_circle_right),
+                onPressed: () =>
+                    goToRoutinePage(value.getWorkoutList()[index].name)),
           ),
         ),
         floatingActionButton: SizedBox(
@@ -132,16 +146,20 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               animatedIconTheme: const IconThemeData(color: Colors.black),
               children: [
                 SpeedDialChild(
-                    child: const Icon(Icons.add_chart_outlined),
-                    label: ('Add New Routine'),
-                    backgroundColor: thirdColor,
-                    elevation: 1,
-                    onTap: createNewWorkout),
+                  child: const Icon(Icons.add_chart_outlined),
+                  label: ('Add New Routine'),
+                  backgroundColor: thirdColor,
+                  elevation: 1,
+                  onTap: () {
+                    createNewWorkout(context);
+                  }
+                ),
                 SpeedDialChild(
                   child: const Icon(Icons.hourglass_empty),
                   label: ('Start Empty Workout'),
                   backgroundColor: thirdColor,
                   elevation: 1,
+                  onTap: startEmptyWorkout
                 ),
               ],
             ),

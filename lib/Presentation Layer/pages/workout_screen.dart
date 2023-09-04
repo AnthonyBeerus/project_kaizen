@@ -28,6 +28,12 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   //Create new workout
   Future createNewWorkout(BuildContext context) {
     return showModalBottomSheet(
+      barrierColor: Colors.black.withOpacity(0.6),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(30)
+        ),
+      ),
       backgroundColor: secondaryColor,
       context: context,
       builder: (context) => Container(

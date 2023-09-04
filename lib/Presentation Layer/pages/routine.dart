@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:phenom_fitness/Data/models/workout_data.dart';
 import 'package:phenom_fitness/themes/colors.dart';
+import 'package:provider/provider.dart';
 
 class Routine extends StatefulWidget {
   final String workoutName;
@@ -12,23 +14,25 @@ class Routine extends StatefulWidget {
 class _RoutineState extends State<Routine> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: secondaryColor,
-        elevation: 0,
-        title: Text(
-          widget.workoutName,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Roboto',
+    return Consumer<WorkoutData>(
+        builder: (context, value, child) => Scaffold(
+          appBar: AppBar(
+            backgroundColor: secondaryColor,
+            elevation: 0,
+            title: Text(
+              widget.workoutName,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+              ),
+            ),
+            centerTitle: true,
+          foregroundColor: primaryColor,
           ),
-        ),
-        centerTitle: true,
-      foregroundColor: primaryColor,
+          backgroundColor: secondaryColor,
       ),
-      backgroundColor: secondaryColor,
     );
   }
 }

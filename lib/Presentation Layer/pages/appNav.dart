@@ -39,11 +39,11 @@ class _AppNavState extends State<AppNav> {
       bottomNavigationBar: CurvedNavigationBar(
         height: 60,
         onTap: _navigateBottomBar,
-        items: const [
-          Icon(Icons.home,),
-          Icon(Icons.fitness_center),
-          Icon(Icons.message_outlined),
-          Icon(Icons.person_2,),
+        items: [
+          Icon(Icons.home, color: secondaryColor,),
+          Icon(Icons.fitness_center, color: secondaryColor,),
+          Icon(Icons.message_outlined, color: secondaryColor,),
+          Icon(Icons.person_2, color: secondaryColor,),
         ],
         color: thirdColor,
         backgroundColor: secondaryColor,

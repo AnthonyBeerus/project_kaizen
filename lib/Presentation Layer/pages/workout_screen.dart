@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/routine.dart';
 import 'package:phenom_fitness/themes/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,17 @@ class WorkoutScreen extends StatefulWidget {
 
 class _WorkoutScreenState extends State<WorkoutScreen> {
   final newWorkoutNameController = TextEditingController();
+  //go to workout page
+  void goToRoutinePage(String workoutName) {
+    Navigator.push(
+      context, 
+      MaterialPageRoute(
+        builder: (context) => Routine(
+          workoutName: workoutName),
+      )
+    );
+  }
+
   //Create new workout
   void createNewWorkout() {
     showDialog(
@@ -57,6 +69,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     Navigator.pop(context);
     clear();
   }
+
   //clear the controllers
   void clear() {
     newWorkoutNameController.clear();
@@ -95,11 +108,16 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           itemCount: value.getWorkoutList().length,
           itemBuilder: (context, index) => ListTile(
             title: Text(value.getWorkoutList()[index].name),
+            trailing: IconButton(
+              icon: const Icon(Icons.arrow_circle_right),
+              onPressed: () => 
+                goToRoutinePage(value.getWorkoutList()[index].name)
+            ),
           ),
         ),
         floatingActionButton: SizedBox(
-          height: 100,
-          width: 100,
+          height: 120,
+          width: 120,
           child: Container(
             margin: const EdgeInsets.only(right: 10, bottom: 20),
             child: SpeedDial(
@@ -110,7 +128,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               overlayColor: secondaryColor,
               overlayOpacity: 0.8,
               elevation: 1,
-              spaceBetweenChildren: 12,
+              spaceBetweenChildren: 10,
               animatedIconTheme: const IconThemeData(color: Colors.black),
               children: [
                 SpeedDialChild(

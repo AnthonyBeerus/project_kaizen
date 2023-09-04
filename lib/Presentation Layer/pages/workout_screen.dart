@@ -50,6 +50,31 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 labelText: 'Routine Name',
               ),
             ),
+            const SizedBox(height: 16), // Add some spacing
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end, // Align buttons to the bottom
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          saveWorkout();
+                        },
+                        child: const Text('Save'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          cancelWorkout();
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

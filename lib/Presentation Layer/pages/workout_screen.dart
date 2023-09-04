@@ -89,7 +89,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             height: 500,
             child: Text('New Workout'),
           );
-        });
+        }
+      );
   }
 
   //Save Workout

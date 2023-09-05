@@ -1,7 +1,7 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
 
 
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/workout_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/home_screen.dart';
@@ -36,18 +36,47 @@ class _AppNavState extends State<AppNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 60,
-        onTap: _navigateBottomBar,
-        items: [
-          Icon(Icons.home, color: secondaryColor,),
-          Icon(Icons.fitness_center, color: secondaryColor,),
-          Icon(Icons.message_outlined, color: secondaryColor,),
-          Icon(Icons.person_2, color: secondaryColor,),
+      backgroundColor: Theme.of(context).colorScheme.background,      
+      bottomNavigationBar: DotNavigationBar(
+        boxShadow: [
+          //bottom right shadow is darker
+          BoxShadow(
+            color: darkBoxShadowBottomRight,
+            offset: const Offset(6, 6),
+            blurRadius: 20,
+            spreadRadius: 1,
+          ),
+          //top left shadow is lighter
+          BoxShadow(
+            color: darkBoxShadowTopLeft,
+            offset: const Offset(-6, -6),
+            blurRadius: 20,
+            spreadRadius: 1,
+          ),
         ],
-        color: thirdColor,
-        backgroundColor: secondaryColor,
-        animationDuration: const Duration(milliseconds: 200),
+        
+        splashBorderRadius: 10,
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
+        backgroundColor:Theme.of(context).colorScheme.background,
+        items: [
+          DotNavigationBarItem(
+              icon: const Icon(Icons.home),
+              selectedColor: Theme.of(context).colorScheme.secondary,
+          ),
+          DotNavigationBarItem(
+              icon: const Icon(Icons.fitness_center_outlined),
+              selectedColor: Theme.of(context).colorScheme.secondary,
+          ),
+          DotNavigationBarItem(
+              icon: const Icon(Icons.chat_bubble),
+              selectedColor: Theme.of(context).colorScheme.secondary,
+          ),
+          DotNavigationBarItem(
+              icon: const Icon(Icons.person_2),
+              selectedColor: Theme.of(context).colorScheme.secondary,
+          ),
+        ],
       ),
     );  
   }

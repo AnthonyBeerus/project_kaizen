@@ -1,7 +1,6 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
 
 import 'package:flutter/material.dart';
-import 'package:phenom_fitness/themes/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,7 +13,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: secondaryColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: CustomScrollView(
         slivers: [
           //Sliver App Bar
@@ -22,18 +21,18 @@ class _HomeState extends State<Home> {
             leading: const Icon(
               Icons.menu,
               color: Colors.black,),
-            backgroundColor: secondaryColor,
+            backgroundColor: Theme.of(context).colorScheme.background,
             pinned: true,
 
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                color: secondaryColor,
+                color: Theme.of(context).colorScheme.background,
               ),
             title: Text(
               'H E L L O',
               style: TextStyle(
-                color: textColor, 
+                color: Theme.of(context).colorScheme.tertiary, 
                 fontFamily: 'Roboto',
                 fontSize: 30, 
               ),

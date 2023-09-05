@@ -16,7 +16,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: secondaryColor,
+          backgroundColor: lightColor,
           elevation: 0,
           title: Text(
             'P R O F I L E',
@@ -29,7 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           centerTitle: true,
         ),
-      backgroundColor: secondaryColor,
+      backgroundColor: lightColor,
       body: const Column(
           children: [
             // Menu item 1
@@ -66,8 +66,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           margin: const EdgeInsets.only(right: 10, bottom: 20),
           child: SpeedDial(
             animatedIcon: AnimatedIcons.menu_close,
-            backgroundColor: thirdColor,
-            overlayColor: secondaryColor,
+            backgroundColor: brandColor,
+            overlayColor: lightColor,
             overlayOpacity: 0.6,
             elevation: 1,
             spaceBetweenChildren: 12,
@@ -75,13 +75,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SpeedDialChild(
                 child: const Icon(Icons.add_chart_outlined),
                 label: ('Add New Routine'),
-                backgroundColor: thirdColor,
+                backgroundColor: brandColor,
                 elevation: 1,
               ),
               SpeedDialChild(
                 child: const Icon(Icons.hourglass_empty),
                 label: ('Start Empty Workout'),
-                backgroundColor: thirdColor,
+                backgroundColor: brandColor,
                 elevation: 1,
               ),
             ],

@@ -15,12 +15,12 @@ class _MessageScreenState extends State<MessageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: secondaryColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: Text(
           'Chat',
           style: TextStyle(
-            color: textColor,
+            color: Theme.of(context).colorScheme.primary,
             fontSize: 50,
             fontWeight: FontWeight.bold,
             fontFamily: 'Roboto',

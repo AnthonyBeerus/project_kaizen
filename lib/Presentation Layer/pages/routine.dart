@@ -17,7 +17,7 @@ class _RoutineState extends State<Routine> {
     return Consumer<WorkoutData>(
         builder: (context, value, child) => Scaffold(
           appBar: AppBar(
-            backgroundColor: secondaryColor,
+            backgroundColor: lightColor,
             elevation: 0,
             title: Text(
               widget.workoutName,
@@ -29,9 +29,9 @@ class _RoutineState extends State<Routine> {
               ),
             ),
             centerTitle: true,
-          foregroundColor: primaryColor,
+          foregroundColor: secondaryColor,
           ),
-          backgroundColor: secondaryColor,
+          backgroundColor: lightColor,
       ),
     );
   }

@@ -34,7 +34,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           top: Radius.circular(30)
         ),
       ),
-      backgroundColor: secondaryColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       context: context,
       builder: (context) => Container(
         padding: const EdgeInsets.all(16),
@@ -128,7 +128,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
 
     // Set the status bar color to match the AppBar color
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: thirdColor, // Set this to your AppBar color
+      statusBarColor: brandColor, // Set this to your AppBar color
     ));
   }
 
@@ -137,12 +137,16 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
         appBar: AppBar(
-          backgroundColor: secondaryColor,
+          leading: Icon(
+            Icons.menu_outlined, 
+            color: Theme.of(context).colorScheme.tertiary,
+          ),
+          backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
           title: Text(
             'G Y M',
             style: TextStyle(
-              color: textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontSize: 20,
               fontWeight: FontWeight.bold,
               fontFamily: 'Roboto',
@@ -150,7 +154,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           ),
           centerTitle: true,
         ),
-        backgroundColor: secondaryColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: ListView.builder(
           itemCount: value.getWorkoutList().length,
           itemBuilder: (context, index) => ListTile(
@@ -164,23 +168,30 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         floatingActionButton: SizedBox(
           height: 120,
           width: 120,
+          
           child: Container(
+          
             margin: const EdgeInsets.only(right: 10, bottom: 20),
             child: SpeedDial(
               label: const Text('Create'),
-              foregroundColor: secondaryColor,
+              foregroundColor: Theme.of(context).colorScheme.primary,
               animatedIcon: AnimatedIcons.add_event,
-              backgroundColor: thirdColor,
-              overlayColor: secondaryColor,
-              overlayOpacity: 0.8,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
+              overlayColor: Theme.of(context).colorScheme.background,
+              overlayOpacity: 0.9,
               elevation: 1,
               spaceBetweenChildren: 10,
-              animatedIconTheme: const IconThemeData(color: Colors.black),
+              animatedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.background),
               children: [
                 SpeedDialChild(
                   child: const Icon(Icons.add_chart_outlined),
+                  labelBackgroundColor: Theme.of(context).colorScheme.background,
+                  labelStyle: const TextStyle(
+                    fontFamily: "Roboto",
+                    fontSize: 15,
+                  ),
                   label: ('Add New Routine'),
-                  backgroundColor: thirdColor,
+                  backgroundColor: Theme.of(context).colorScheme.background,
                   elevation: 1,
                   onTap: () {
                     createNewWorkout(context);
@@ -188,8 +199,13 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 ),
                 SpeedDialChild(
                   child: const Icon(Icons.hourglass_empty),
+                  labelBackgroundColor: Theme.of(context).colorScheme.background,
                   label: ('Start Empty Workout'),
-                  backgroundColor: thirdColor,
+                  labelStyle: const TextStyle(
+                    fontFamily: "Roboto",
+                    fontSize: 15,
+                  ),
+                  backgroundColor: Theme.of(context).colorScheme.background,
                   elevation: 1,
                   onTap: startEmptyWorkout
                 ),

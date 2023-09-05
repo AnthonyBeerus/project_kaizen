@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/appNav.dart';
+import 'package:phenom_fitness/themes/dark_theme.dart';
+import 'package:phenom_fitness/themes/light_theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -15,9 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => WorkoutData(),
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: AppNav(),
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        home: const AppNav(),
       ),
     );
   }

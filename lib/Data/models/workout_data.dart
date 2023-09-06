@@ -19,7 +19,7 @@ class WorkoutData extends ChangeNotifier {
       name: 'Lower Body',
       exercises: [
         ExerciseClass(
-          name: "Bicep Curls",
+          name: "Deadlift",
           weight: "10",
           sets: "4",
           reps: "10",

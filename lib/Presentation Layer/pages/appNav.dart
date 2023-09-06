@@ -36,25 +36,26 @@ class _AppNavState extends State<AppNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      backgroundColor: Theme.of(context).colorScheme.background,      
+      backgroundColor: Theme.of(context).colorScheme.background,
       bottomNavigationBar: DotNavigationBar(
+        duration: const Duration(milliseconds: 300),
+        borderRadius: 15,
         boxShadow: [
           //bottom right shadow is darker
           BoxShadow(
             color: darkBoxShadowBottomRight,
-            offset: const Offset(6, 6),
-            blurRadius: 20,
+            offset: const Offset(2, 2),
+            blurRadius: 15,
             spreadRadius: 1,
           ),
           //top left shadow is lighter
           BoxShadow(
             color: darkBoxShadowTopLeft,
-            offset: const Offset(-6, -6),
-            blurRadius: 20,
+            offset: const Offset(-2, -2),
+            blurRadius: 15,
             spreadRadius: 1,
           ),
         ],
-        
         splashBorderRadius: 10,
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
@@ -65,7 +66,7 @@ class _AppNavState extends State<AppNav> {
               selectedColor: Theme.of(context).colorScheme.secondary,
           ),
           DotNavigationBarItem(
-              icon: const Icon(Icons.fitness_center_outlined),
+              icon: const Icon(Icons.fitness_center),
               selectedColor: Theme.of(context).colorScheme.secondary,
           ),
           DotNavigationBarItem(
@@ -73,7 +74,7 @@ class _AppNavState extends State<AppNav> {
               selectedColor: Theme.of(context).colorScheme.secondary,
           ),
           DotNavigationBarItem(
-              icon: const Icon(Icons.person_2),
+              icon: const Icon(Icons.auto_graph_outlined),
               selectedColor: Theme.of(context).colorScheme.secondary,
           ),
         ],

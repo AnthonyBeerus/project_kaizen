@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:phenom_fitness/themes/colors.dart';
+
 
 class FloatingAction extends StatefulWidget {
   final Color backgroundColor;
@@ -25,7 +25,7 @@ class _FloatingActionState extends State<FloatingAction> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: SpeedDial(
-        backgroundColor: brandColor,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         overlayColor: Colors.black,
         overlayOpacity: 0.5,
         spacing: 1,

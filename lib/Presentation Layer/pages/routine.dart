@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
-import 'package:phenom_fitness/themes/colors.dart';
+
 import 'package:provider/provider.dart';
 
 class Routine extends StatefulWidget {

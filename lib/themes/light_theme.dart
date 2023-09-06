@@ -11,4 +11,10 @@ ThemeData lightTheme = ThemeData(
     primaryContainer: lightBoxShadowBottomRight,
     secondaryContainer: lightBoxShadowTopLeft,
   ),
+  cardTheme: CardTheme(
+    margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 1.0),
+    color: lightBoxShadowTopLeft,
+    elevation: 10,
+    shadowColor: lightBoxShadowBottomRight,
+  ),
 );

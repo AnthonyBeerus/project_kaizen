@@ -7,7 +7,6 @@ import 'package:phenom_fitness/Presentation%20Layer/pages/workout_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/home_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/message_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/settings_screen.dart';
-import 'package:phenom_fitness/themes/colors.dart';
 //import 'package:phenom_fitness/widgets/neumorphic_design.dart';
 
 class AppNav extends StatefulWidget {
@@ -38,25 +37,26 @@ class _AppNavState extends State<AppNav> {
       body: _pages[_selectedIndex],
       backgroundColor: Theme.of(context).colorScheme.background,
       bottomNavigationBar: DotNavigationBar(
+        margin: const EdgeInsets.all(10),
         duration: const Duration(milliseconds: 300),
-        borderRadius: 15,
+        borderRadius: 10,
         boxShadow: [
           //bottom right shadow is darker
           BoxShadow(
-            color: darkBoxShadowBottomRight,
-            offset: const Offset(2, 2),
-            blurRadius: 15,
+            color: Theme.of(context).colorScheme.primaryContainer,
+            offset: const Offset(4, 4),
+            blurRadius: 12,
             spreadRadius: 1,
           ),
           //top left shadow is lighter
           BoxShadow(
-            color: darkBoxShadowTopLeft,
-            offset: const Offset(-2, -2),
-            blurRadius: 15,
+            color: Theme.of(context).colorScheme.secondaryContainer,
+            offset: const Offset(-4, -4),
+            blurRadius: 12,
             spreadRadius: 1,
           ),
         ],
-        splashBorderRadius: 10,
+        splashBorderRadius: 20,
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
         backgroundColor:Theme.of(context).colorScheme.background,

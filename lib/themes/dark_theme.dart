@@ -6,8 +6,9 @@ ThemeData darkTheme = ThemeData(
   colorScheme: ColorScheme.dark(
     background: darkColor,
     primary: secondaryColor,
-    secondary: brandColor,
+    secondary: brandColorDarkTheme,
     tertiary: lightColor,
-     
+    primaryContainer: darkBoxShadowBottomRight,
+    secondaryContainer: darkBoxShadowTopLeft,
   ),
 );

@@ -6,7 +6,9 @@ ThemeData lightTheme = ThemeData(
   colorScheme: ColorScheme.light(
     background: lightColor,
     primary: secondaryColor,
-    secondary: brandColor,
+    secondary: brandColorLightTheme,
     tertiary: darkColor,
+    primaryContainer: lightBoxShadowBottomRight,
+    secondaryContainer: lightBoxShadowTopLeft,
   ),
 );

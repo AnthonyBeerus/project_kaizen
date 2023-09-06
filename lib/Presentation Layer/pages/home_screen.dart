@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: CustomScrollView(
-        slivers: [
+        slivers: [ 
           //Sliver App Bar
           SliverAppBar(
             leading: const Icon(

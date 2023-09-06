@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:phenom_fitness/themes/colors.dart';
-
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -16,12 +14,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: lightColor,
+          backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
           title: Text(
             'P R O F I L E',
             style: TextStyle(
-              color: textColor,
+              color: Theme.of(context).colorScheme.tertiary,
               fontSize: 20,
               fontWeight: FontWeight.bold,
               fontFamily: 'Roboto',
@@ -29,7 +27,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           centerTitle: true,
         ),
-      backgroundColor: lightColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: const Column(
           children: [
             // Menu item 1
@@ -66,8 +64,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           margin: const EdgeInsets.only(right: 10, bottom: 20),
           child: SpeedDial(
             animatedIcon: AnimatedIcons.menu_close,
-            backgroundColor: brandColor,
-            overlayColor: lightColor,
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            overlayColor: Theme.of(context).colorScheme.background,
             overlayOpacity: 0.6,
             elevation: 1,
             spaceBetweenChildren: 12,
@@ -75,13 +73,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SpeedDialChild(
                 child: const Icon(Icons.add_chart_outlined),
                 label: ('Add New Routine'),
-                backgroundColor: brandColor,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
                 elevation: 1,
               ),
               SpeedDialChild(
                 child: const Icon(Icons.hourglass_empty),
                 label: ('Start Empty Workout'),
-                backgroundColor: brandColor,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
                 elevation: 1,
               ),
             ],

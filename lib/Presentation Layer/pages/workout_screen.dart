@@ -1,10 +1,9 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/routine.dart';
-import 'package:phenom_fitness/themes/colors.dart';
+
 import 'package:provider/provider.dart';
 
 class WorkoutScreen extends StatefulWidget {
@@ -122,15 +121,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     newWorkoutNameController.clear();
   }
 
-  @override
-  void initState() {
-    super.initState();
-
-    // Set the status bar color to match the AppBar color
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: brandColor, // Set this to your AppBar color
-    ));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -175,23 +165,23 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               boxShadow: [
                 //bottom right shadow is darker
                 BoxShadow(
-                  color: darkBoxShadowBottomRight,
-                  offset: const Offset(3, 3),
-                  blurRadius: 15,
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  offset: const Offset(4, 4),
+                  blurRadius: 12,
                   spreadRadius: 1,
                 ),
                 //top left shadow is lighter
                 BoxShadow(
-                  color: darkBoxShadowTopLeft,
-                  offset: const Offset(-3, -3),
-                  blurRadius: 15,
+                  color: Theme.of(context).colorScheme.secondaryContainer,
+                  offset: const Offset(-4, -4),
+                  blurRadius: 12,
                   spreadRadius: 1,
                 ),
               ],
             ),
             child: SpeedDial(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
               ),
               foregroundColor: Theme.of(context).colorScheme.background,
               animatedIcon: AnimatedIcons.add_event,
@@ -200,7 +190,9 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               overlayOpacity: 0.9,
               elevation: 0,
               spaceBetweenChildren: 10,
-              animatedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
+              animatedIconTheme: IconThemeData(
+                color: Theme.of(context).colorScheme.tertiary
+              ),
               children: [
                 SpeedDialChild(
                   child: const Icon(Icons.add_chart_outlined),

@@ -17,21 +17,32 @@ class _RoutineState extends State<Routine> {
     return Consumer<WorkoutData>(
         builder: (context, value, child) => Scaffold(
           appBar: AppBar(
-            backgroundColor: lightColor,
+            backgroundColor: Theme.of(context).colorScheme.background,
             elevation: 0,
             title: Text(
               widget.workoutName,
               style: TextStyle(
-                color: textColor,
+                color: Theme.of(context).colorScheme.tertiary,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Roboto',
               ),
             ),
             centerTitle: true,
-          foregroundColor: secondaryColor,
+          foregroundColor: Theme.of(context).colorScheme.tertiary,
           ),
-          backgroundColor: lightColor,
+          body: ListView.builder(
+            itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
+            itemBuilder: (context, index) => ListTile(
+              title: Text(
+                value
+                  .getReleventWorkout(widget.workoutName)
+                  .exercises[index]
+                  .name,
+              ),
+            ), 
+          ),
+          backgroundColor: Theme.of(context).colorScheme.background,
       ),
     );
   }

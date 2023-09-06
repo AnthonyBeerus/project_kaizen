@@ -165,23 +165,42 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                     goToRoutinePage(value.getWorkoutList()[index].name)),
           ),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: SizedBox(
-          height: 120,
-          width: 120,
-          
+          height: 70,
+          width: 70,  
           child: Container(
-          
-            margin: const EdgeInsets.only(right: 10, bottom: 20),
+            margin: const EdgeInsets.only(right: 10, bottom: 10),
+            decoration: BoxDecoration(
+              boxShadow: [
+                //bottom right shadow is darker
+                BoxShadow(
+                  color: darkBoxShadowBottomRight,
+                  offset: const Offset(3, 3),
+                  blurRadius: 15,
+                  spreadRadius: 1,
+                ),
+                //top left shadow is lighter
+                BoxShadow(
+                  color: darkBoxShadowTopLeft,
+                  offset: const Offset(-3, -3),
+                  blurRadius: 15,
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
             child: SpeedDial(
-              label: const Text('Create'),
-              foregroundColor: Theme.of(context).colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              foregroundColor: Theme.of(context).colorScheme.background,
               animatedIcon: AnimatedIcons.add_event,
-              backgroundColor: Theme.of(context).colorScheme.secondary,
+              backgroundColor: Theme.of(context).colorScheme.background,
               overlayColor: Theme.of(context).colorScheme.background,
               overlayOpacity: 0.9,
-              elevation: 1,
+              elevation: 0,
               spaceBetweenChildren: 10,
-              animatedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.background),
+              animatedIconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
               children: [
                 SpeedDialChild(
                   child: const Icon(Icons.add_chart_outlined),

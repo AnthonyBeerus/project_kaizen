@@ -75,7 +75,7 @@ class _AppNavState extends State<AppNav> {
               selectedColor: Theme.of(context).colorScheme.secondary,
           ),
           DotNavigationBarItem(
-              icon: const Icon(Icons.auto_graph_outlined),
+              icon: const Icon(Icons.stacked_line_chart_outlined),
               selectedColor: Theme.of(context).colorScheme.secondary,
           ),
         ],

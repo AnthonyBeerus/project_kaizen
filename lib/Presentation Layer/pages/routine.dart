@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
+import 'package:phenom_fitness/Domain/Models/components/exerciseTile.dart';
 
 import 'package:provider/provider.dart';
 
@@ -33,15 +34,14 @@ class _RoutineState extends State<Routine> {
           ),
           body: ListView.builder(
             itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
-            itemBuilder: (context, index) => ListTile(
-              title: Text(
-                value
-                  .getReleventWorkout(widget.workoutName)
-                  .exercises[index]
-                  .name,
+            itemBuilder: (context, index) => ExerciseTile(
+              exerciseName: value.getReleventWorkout(widget.workoutName).exercises[index].name, 
+              weight: value.getReleventWorkout(widget.workoutName).exercises[index].weight, 
+              sets: value.getReleventWorkout(widget.workoutName).exercises[index].sets, 
+              reps: value.getReleventWorkout(widget.workoutName).exercises[index].reps, 
+              isCompleted: value.getReleventWorkout(widget.workoutName).exercises[index].isCompleted,
               ),
-            ), 
-          ),
+           ),
           backgroundColor: Theme.of(context).colorScheme.background,
       ),
     );

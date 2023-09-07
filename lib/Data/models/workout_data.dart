@@ -26,6 +26,84 @@ class WorkoutData extends ChangeNotifier {
         ),
       ],
     ),
+    WorkoutClass(
+      name: 'Lower Body',
+      exercises: [
+        ExerciseClass(
+          name: "Deadlift",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    WorkoutClass(
+      name: 'Lower Body',
+      exercises: [
+        ExerciseClass(
+          name: "Deadlift",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    WorkoutClass(
+      name: 'Lower Body',
+      exercises: [
+        ExerciseClass(
+          name: "Deadlift",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    WorkoutClass(
+      name: 'Lower Body',
+      exercises: [
+        ExerciseClass(
+          name: "Deadlift",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    WorkoutClass(
+      name: 'Lower Body',
+      exercises: [
+        ExerciseClass(
+          name: "Deadlift",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    WorkoutClass(
+      name: 'Lower Body',
+      exercises: [
+        ExerciseClass(
+          name: "Deadlift",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    WorkoutClass(
+      name: 'Lower Body',
+      exercises: [
+        ExerciseClass(
+          name: "Deadlift",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    
   ];
 
   //Get list of workouts

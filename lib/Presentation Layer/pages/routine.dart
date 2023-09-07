@@ -20,6 +20,10 @@ class _RoutineState extends State<Routine> {
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.background,
             elevation: 0,
+            leading: Icon(
+              Icons.arrow_back_ios,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
             title: Text(
               widget.workoutName,
               style: TextStyle(
@@ -40,8 +44,8 @@ class _RoutineState extends State<Routine> {
               sets: value.getReleventWorkout(widget.workoutName).exercises[index].sets, 
               reps: value.getReleventWorkout(widget.workoutName).exercises[index].reps, 
               isCompleted: value.getReleventWorkout(widget.workoutName).exercises[index].isCompleted,
-              ),
-           ),
+            ),
+          ),
           backgroundColor: Theme.of(context).colorScheme.background,
       ),
     );

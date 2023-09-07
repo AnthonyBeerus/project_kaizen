@@ -19,21 +19,25 @@ class ExerciseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(exerciseName),
-        subtitle: Row(
-          children: [
-            Chip(
-              label: Text('${weight}kg'),
-            ),
-            Chip(
-              label: Text('${reps}reps'),
-            ),
-            Chip(
-              label: Text('${sets}sets'),
-            ),
-          ],
+    return Container(
+      height: 140,
+      child: Card(
+        child: ListTile(
+          title: Text(exerciseName),
+          subtitle: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Chip(
+                label: Text('${weight}kg'),
+              ),
+              Chip(
+                label: Text('${reps}reps'),
+              ),
+              Chip(
+                label: Text('${sets}sets'),
+              ),
+            ],
+          ),
         ),
       ),
     );

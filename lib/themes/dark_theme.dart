@@ -12,9 +12,12 @@ ThemeData darkTheme = ThemeData(
     secondaryContainer: darkBoxShadowTopLeft,
   ),
   cardTheme: CardTheme(
-    margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 15.0),
+    margin: const EdgeInsets.all(10),
     color: darkBoxShadowTopLeft,
-    elevation: 20,
+    elevation: 0,
     shadowColor: darkBoxShadowBottomRight,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
   ),
 );

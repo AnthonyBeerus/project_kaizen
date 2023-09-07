@@ -37,7 +37,8 @@ class _AppNavState extends State<AppNav> {
       body: _pages[_selectedIndex],
       backgroundColor: Theme.of(context).colorScheme.background,
       bottomNavigationBar: DotNavigationBar(
-        margin: const EdgeInsets.all(10),
+        paddingR: const EdgeInsets.symmetric(horizontal: 1.0, vertical: 10.0,),
+        marginR: const EdgeInsets.all(20),
         duration: const Duration(milliseconds: 300),
         borderRadius: 10,
         boxShadow: [

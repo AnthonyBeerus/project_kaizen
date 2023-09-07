@@ -4,6 +4,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/routine.dart';
 import 'package:phenom_fitness/Presentation%20Layer/widgets/workout_box.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:provider/provider.dart';
 
@@ -148,20 +149,58 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: ListView.builder(
           itemCount: value.getWorkoutList().length,
-          itemBuilder: (context, index) => Card(
-            // color: Theme.of(context).colorScheme.background,
-            elevation: 0,
-            child: ListTile(
-              title: Text(
-                value
-                .getWorkoutList()[index].name
-              ),
-              trailing: IconButton(
-                icon: const Icon(Icons.arrow_forward_ios),
-                onPressed: () =>
-                    goToRoutinePage(
-                      value.getWorkoutList()[index].name
+          itemBuilder: (context, index) => Slidable(
+            startActionPane: ActionPane(
+              motion: const StretchMotion(), 
+              children: [
+                SlidableAction(
+                  onPressed: ((context){
+
+                  }),
+                  icon: Icons.assistant,
+                ),
+              ],
+            ),
+            endActionPane: ActionPane(
+              motion: const StretchMotion(),
+              children: [
+                SlidableAction(
+                  onPressed: ((context){
+
+                  }),
+                  icon: Icons.add,
+                ),
+                SlidableAction(
+                  onPressed: ((context){
+
+                  }),
+                  icon: Icons.delete,
+                ),
+              ],
+            ),
+            child: Container(
+              height: 90,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 90.0),
+                child: Card(
+                  elevation: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0.1),
+                    child: ListTile(
+                      title: Text(
+                        value
+                        .getWorkoutList()[index].name
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.arrow_forward_ios),
+                        onPressed: () =>
+                            goToRoutinePage(
+                              value.getWorkoutList()[index].name
+                            ),
+                      ),
                     ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -171,7 +210,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
           height: 70,
           width: 70,  
           child: Container(
-            margin: const EdgeInsets.only(right: 10, bottom: 10),
+            margin: const EdgeInsets.only(right: 10, bottom: 10,),
             decoration: BoxDecoration(
               boxShadow: [
                 //bottom right shadow is darker
@@ -194,7 +233,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              foregroundColor: Theme.of(context).colorScheme.background,
+              foregroundColor: Theme.of(context).colorScheme.secondary,
               animatedIcon: AnimatedIcons.add_event,
               backgroundColor: Theme.of(context).colorScheme.background,
               overlayColor: Theme.of(context).colorScheme.background,
@@ -202,7 +241,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               elevation: 0,
               spaceBetweenChildren: 10,
               animatedIconTheme: IconThemeData(
-                color: Theme.of(context).colorScheme.tertiary
+                color: Theme.of(context).colorScheme.secondary
               ),
               children: [
                 SpeedDialChild(
@@ -210,25 +249,27 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                   labelBackgroundColor: Theme.of(context).colorScheme.background,
                   labelStyle: const TextStyle(
                     fontFamily: "Roboto",
-                    fontSize: 15,
+                    fontSize: 18,
                   ),
                   label: ('Add New Routine'),
                   backgroundColor: Theme.of(context).colorScheme.background,
-                  elevation: 1,
+                  elevation: 10,
                   onTap: () {
                     createNewWorkout(context);
                   }
                 ),
                 SpeedDialChild(
-                  child: const Icon(Icons.hourglass_empty),
+                  child: const Icon(
+                    Icons.hourglass_empty, 
+                  ),
                   labelBackgroundColor: Theme.of(context).colorScheme.background,
                   label: ('Start Empty Workout'),
                   labelStyle: const TextStyle(
                     fontFamily: "Roboto",
-                    fontSize: 15,
+                    fontSize: 18,
                   ),
                   backgroundColor: Theme.of(context).colorScheme.background,
-                  elevation: 1,
+                  elevation: 10,
                   onTap: startEmptyWorkout
                 ),
               ],

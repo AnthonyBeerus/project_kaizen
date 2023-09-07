@@ -4,105 +4,101 @@ import 'package:phenom_fitness/Domain/Models/workout_class.dart';
 
 class WorkoutData extends ChangeNotifier {
   List<WorkoutClass> workoutList = [
+    //Dummy Data
     WorkoutClass(
-      name: 'Upper Body',
+      name: 'Push',
       exercises: [
+        ExerciseClass(
+          name: "Floor Press",
+          weight: "30",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Chest Fly",
+          weight: "20",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Skullcrusher",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Lateral Raise",
+          weight: "10",
+          sets: "4",
+          reps: "10",
+        ),
+      ],
+    ),
+    WorkoutClass(
+      name: 'Pull',
+      exercises: [
+        ExerciseClass(
+          name: "Dumbbell Rows",
+          weight: "30",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Rear Delt Fly",
+          weight: "30",
+          sets: "4",
+          reps: "10",
+        ),
         ExerciseClass(
           name: "Bicep Curls",
-          weight: "10",
+          weight: "20",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Hammer Curls",
+          weight: "20",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Shrugs",
+          weight: "30",
           sets: "4",
           reps: "10",
         ),
       ],
     ),
     WorkoutClass(
-      name: 'Lower Body',
+      name: 'Legs',
       exercises: [
         ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
+          name: "Split Squats",
+          weight: "30",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Sumo Squats",
+          weight: "30",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Romanian Deadlift",
+          weight: "24",
+          sets: "4",
+          reps: "10",
+        ),
+        ExerciseClass(
+          name: "Suitcase Deadlift",
+          weight: "30",
           sets: "4",
           reps: "10",
         ),
       ],
     ),
-    WorkoutClass(
-      name: 'Lower Body',
-      exercises: [
-        ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
-          sets: "4",
-          reps: "10",
-        ),
-      ],
-    ),
-    WorkoutClass(
-      name: 'Lower Body',
-      exercises: [
-        ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
-          sets: "4",
-          reps: "10",
-        ),
-      ],
-    ),
-    WorkoutClass(
-      name: 'Lower Body',
-      exercises: [
-        ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
-          sets: "4",
-          reps: "10",
-        ),
-      ],
-    ),
-    WorkoutClass(
-      name: 'Lower Body',
-      exercises: [
-        ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
-          sets: "4",
-          reps: "10",
-        ),
-      ],
-    ),
-    WorkoutClass(
-      name: 'Lower Body',
-      exercises: [
-        ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
-          sets: "4",
-          reps: "10",
-        ),
-      ],
-    ),
-    WorkoutClass(
-      name: 'Lower Body',
-      exercises: [
-        ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
-          sets: "4",
-          reps: "10",
-        ),
-      ],
-    ),
-    WorkoutClass(
-      name: 'Lower Body',
-      exercises: [
-        ExerciseClass(
-          name: "Deadlift",
-          weight: "10",
-          sets: "4",
-          reps: "10",
-        ),
-      ],
-    ),
+
     
   ];
 

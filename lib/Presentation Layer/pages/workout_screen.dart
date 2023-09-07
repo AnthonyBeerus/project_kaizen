@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/routine.dart';
-import 'package:phenom_fitness/Presentation%20Layer/widgets/workout_box.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:provider/provider.dart';
@@ -149,54 +148,71 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: ListView.builder(
           itemCount: value.getWorkoutList().length,
-          itemBuilder: (context, index) => Slidable(
-            startActionPane: ActionPane(
-              motion: const StretchMotion(), 
-              children: [
-                SlidableAction(
-                  onPressed: ((context){
-
-                  }),
-                  icon: Icons.assistant,
-                ),
-              ],
-            ),
-            endActionPane: ActionPane(
-              motion: const StretchMotion(),
-              children: [
-                SlidableAction(
-                  onPressed: ((context){
-
-                  }),
-                  icon: Icons.add,
-                ),
-                SlidableAction(
-                  onPressed: ((context){
-
-                  }),
-                  icon: Icons.delete,
-                ),
-              ],
-            ),
-            child: Container(
+          itemBuilder: (context, index) => 
+            SizedBox(
               height: 90,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 90.0),
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 child: Card(
                   elevation: 0,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0.1),
-                    child: ListTile(
-                      title: Text(
-                        value
-                        .getWorkoutList()[index].name
-                      ),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.arrow_forward_ios),
-                        onPressed: () =>
-                            goToRoutinePage(
-                              value.getWorkoutList()[index].name
+                    padding: const EdgeInsets.symmetric(horizontal: 0.0,vertical: 0.0),
+                    child: Slidable(
+                      startActionPane: ActionPane(
+                        motion: const StretchMotion(), 
+                        children: [
+                          SlidableAction(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10)
                             ),
+                            onPressed: ((context){
+                            }),
+                            backgroundColor: Colors.amber,
+                            icon: Icons.assistant,
+                          ),
+                          SlidableAction(
+                            onPressed: ((context){
+                            }),
+                            backgroundColor:Colors.purpleAccent,
+                            icon: Icons.analytics,
+                          ),
+                          SlidableAction(
+                            onPressed: ((context){
+                            }),
+                            backgroundColor: Colors.lightBlue,
+                            icon: Icons.share,
+                          ),
+                        ],  
+                      ),
+                      endActionPane: ActionPane(
+                        motion: const StretchMotion(),
+                        children: [
+                          SlidableAction(
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(10),
+                              bottomRight: Radius.circular(10)
+                            ),
+                            onPressed: ((context){
+
+                            }),
+                            backgroundColor: Colors.redAccent,
+                            icon: Icons.delete,
+                          ),
+                        ],
+                      ),
+                      child: ListTile(
+                        title: Text(
+                          value
+                          .getWorkoutList()[index].name
+                        ),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.arrow_forward_ios),
+                          onPressed: () =>
+                              goToRoutinePage(
+                                value.getWorkoutList()[index].name
+                              ),
+                        ),
                       ),
                     ),
                   ),
@@ -204,7 +220,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               ),
             ),
           ),
-        ),
+
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: SizedBox(
           height: 70,

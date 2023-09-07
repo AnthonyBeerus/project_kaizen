@@ -149,78 +149,66 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         body: ListView.builder(
           itemCount: value.getWorkoutList().length,
           itemBuilder: (context, index) => 
-            SizedBox(
-              height: 90,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Card(
-                  elevation: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0.0,vertical: 0.0),
-                    child: Slidable(
-                      startActionPane: ActionPane(
-                        motion: const StretchMotion(), 
-                        children: [
-                          SlidableAction(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10)
-                            ),
-                            onPressed: ((context){
-                            }),
-                            backgroundColor: Colors.amber,
-                            icon: Icons.assistant,
-                          ),
-                          SlidableAction(
-                            onPressed: ((context){
-                            }),
-                            backgroundColor:Colors.purpleAccent,
-                            icon: Icons.analytics,
-                          ),
-                          SlidableAction(
-                            onPressed: ((context){
-                            }),
-                            backgroundColor: Colors.lightBlue,
-                            icon: Icons.share,
-                          ),
-                        ],  
+            Card(
+              elevation: 0,  
+              child: SizedBox(
+                height: 100,
+                child: Slidable(
+                  startActionPane: ActionPane(
+                    motion: const StretchMotion(),
+                    children: [
+                      SlidableAction(
+                        borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10)
+                        ),
+                        onPressed: ((context) {}),
+                        backgroundColor: Theme.of(context).colorScheme.secondary,
+                        icon: Icons.chat_bubble_outline_rounded,
                       ),
-                      endActionPane: ActionPane(
-                        motion: const StretchMotion(),
-                        children: [
-                          SlidableAction(
-                            borderRadius: const BorderRadius.only(
-                              topRight: Radius.circular(10),
-                              bottomRight: Radius.circular(10)
-                            ),
-                            onPressed: ((context){
-
-                            }),
-                            backgroundColor: Colors.redAccent,
-                            icon: Icons.delete,
-                          ),
-                        ],
+                      SlidableAction(
+                        onPressed: ((context) {}),
+                        backgroundColor: Colors.blueAccent,
+                        icon: Icons.stacked_line_chart_outlined,
                       ),
-                      child: ListTile(
-                        title: Text(
+                    ],
+                  ),
+                  endActionPane: ActionPane(
+                    motion: const StretchMotion(),
+                    children: [
+                      SlidableAction(
+                        borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          bottomRight: Radius.circular(10)
+                        ),
+                        onPressed: ((context) {}),
+                        backgroundColor: Colors.redAccent,
+                        icon: Icons.delete,
+                      ),
+                    ],
+                  ),
+                child: SizedBox(
+                  height: 200,
+                  child: ListTile(
+                    title: Text(
+                      value
+                        .getWorkoutList()[index].name
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.arrow_forward_ios),
+                      onPressed: () =>
+                        goToRoutinePage(
                           value
-                          .getWorkoutList()[index].name
+                            .getWorkoutList()[index]
+                            .name
                         ),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.arrow_forward_ios),
-                          onPressed: () =>
-                              goToRoutinePage(
-                                value.getWorkoutList()[index].name
-                              ),
-                        ),
-                      ),
                     ),
                   ),
                 ),
               ),
             ),
           ),
-
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: SizedBox(
           height: 70,
@@ -251,13 +239,13 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               ),
               foregroundColor: Theme.of(context).colorScheme.secondary,
               animatedIcon: AnimatedIcons.add_event,
-              backgroundColor: Theme.of(context).colorScheme.background,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
               overlayColor: Theme.of(context).colorScheme.background,
               overlayOpacity: 0.9,
               elevation: 0,
               spaceBetweenChildren: 10,
               animatedIconTheme: IconThemeData(
-                color: Theme.of(context).colorScheme.secondary
+                color: Theme.of(context).colorScheme.background
               ),
               children: [
                 SpeedDialChild(

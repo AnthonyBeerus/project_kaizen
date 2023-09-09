@@ -125,7 +125,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   double boxX = -1;
   double boxY = -1;
 
-
   void _expandBox() {
     setState(() {
       boxHeight = 300;
@@ -227,9 +226,12 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: SizedBox(
           height: 70,
-          width: 70,  
+          width: 70,
           child: Container(
-            margin: const EdgeInsets.only(right: 10, bottom: 10,),
+            margin: const EdgeInsets.only(
+              right: 10,
+              bottom: 10,
+            ),
             decoration: BoxDecoration(
               boxShadow: [
                 //bottom right shadow is darker
@@ -267,12 +269,19 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                       backgroundColor: Theme.of(context).colorScheme.secondary,
                       overlayColor: Theme.of(context).colorScheme.background,
                       overlayOpacity: 0.9,
-                      
                       elevation: 0,
                       spaceBetweenChildren: 10,
                       animatedIconTheme: IconThemeData(
-                          color: Theme.of(context).colorScheme.background
-                      ),
+                          color: Theme.of(context).colorScheme.background),
+                      onOpen: () {
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          alignment: Alignment(boxX, boxY),
+                          color: Theme.of(context).colorScheme.tertiary,
+                          height: boxHeight,
+                          width: boxWidth,
+                        );
+                      },
                       children: [
                         SpeedDialChild(
                             child: const Icon(Icons.add_chart_outlined),
@@ -306,7 +315,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                             onTap: startEmptyWorkout),
                       ],
                     ),
-                  ], 
+                  ],
                 ),
               ),
             ),

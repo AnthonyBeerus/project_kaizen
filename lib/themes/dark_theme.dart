@@ -12,12 +12,24 @@ ThemeData darkTheme = ThemeData(
     secondaryContainer: darkBoxShadowTopLeft,
   ),
   cardTheme: CardTheme(
-    margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+    margin: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
     color: darkBoxShadowTopLeft,
     elevation: 0,
     shadowColor: darkBoxShadowBottomRight,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      alignment: Alignment.center, 
+      backgroundColor: brandColorDarkTheme, 
+      foregroundColor: darkColor,
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      backgroundColor: darkColor,
     ),
   ),
 );

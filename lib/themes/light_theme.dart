@@ -20,4 +20,21 @@ ThemeData lightTheme = ThemeData(
       borderRadius: BorderRadius.circular(10),
     ),
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      alignment: Alignment.center,
+      backgroundColor: brandColorLightTheme,
+      foregroundColor: lightColor,
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      backgroundColor: lightColor,
+      textStyle: const TextStyle(
+        color: Colors.black,
+        fontFamily: 'Roboto',
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  ),
 );

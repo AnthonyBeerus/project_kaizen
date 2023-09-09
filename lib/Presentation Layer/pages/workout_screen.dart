@@ -188,11 +188,17 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                     ],
                   ),
                 child: SizedBox(
-                  height: 200,
+                  height: 100,
                   child: ListTile(
                     title: Text(
                       value
-                        .getWorkoutList()[index].name
+                        .getWorkoutList()[index].name,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.tertiary,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                      ),
                     ),
                     trailing: IconButton(
                       icon: const Icon(Icons.arrow_forward_ios),

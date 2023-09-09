@@ -272,7 +272,8 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                       elevation: 0,
                       spaceBetweenChildren: 10,
                       animatedIconTheme: IconThemeData(
-                          color: Theme.of(context).colorScheme.background),
+                          color: Theme.of(context).colorScheme.background
+                      ),
                       onOpen: () {
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 200),
@@ -280,6 +281,9 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                           color: Theme.of(context).colorScheme.tertiary,
                           height: boxHeight,
                           width: boxWidth,
+                          child: SpeedDial(
+                            
+                          ),
                         );
                       },
                       children: [

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:phenom_fitness/Data/models/workout_data.dart';
 
 class ExerciseTile extends StatefulWidget {
   final String exerciseName;

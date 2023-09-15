@@ -5,12 +5,25 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class MessageScreen extends StatefulWidget {
   const MessageScreen({super.key});
+  
 
   @override
   State<MessageScreen> createState() => _MessageScreenState();
 }
 
+
 class _MessageScreenState extends State<MessageScreen> {
+  double boxHeight = 70;
+  double boxWidth = 70;
+  double boxX = -1;
+  double boxY = -1;
+
+  void _expandBox() {
+    setState(() {
+      boxHeight = 300;
+      boxWidth = 300;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,13 +40,12 @@ class _MessageScreenState extends State<MessageScreen> {
         ),
       ),
       floatingActionButton: GestureDetector(
-
-
         child: AnimatedContainer(
+          height: boxHeight,
+          width: boxWidth,
           duration: const Duration(seconds: 1),
           child: FloatingActionButton(
             onPressed: () {
-            
             },
           ),
         ),

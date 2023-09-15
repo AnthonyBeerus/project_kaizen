@@ -250,78 +250,53 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 ),
               ],
             ),
-            child: GestureDetector(
-              onTap: _expandBox,
-              child: AnimatedContainer(
-                alignment: Alignment(boxX, boxY),
-                color: Theme.of(context).colorScheme.tertiary,
-                height: boxHeight,
-                width: boxWidth,
-                duration: const Duration(milliseconds: 200),
-                child: Stack(
-                  children: [
-                    SpeedDial(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      foregroundColor: Theme.of(context).colorScheme.secondary,
-                      animatedIcon: AnimatedIcons.add_event,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
-                      overlayColor: Theme.of(context).colorScheme.background,
-                      overlayOpacity: 0.9,
-                      elevation: 0,
-                      spaceBetweenChildren: 10,
-                      animatedIconTheme: IconThemeData(
-                          color: Theme.of(context).colorScheme.background
-                      ),
-                      onOpen: () {
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          alignment: Alignment(boxX, boxY),
-                          color: Theme.of(context).colorScheme.tertiary,
-                          height: boxHeight,
-                          width: boxWidth,
-                          child: SpeedDial(
-                            
-                          ),
-                        );
-                      },
-                      children: [
-                        SpeedDialChild(
-                            child: const Icon(Icons.add_chart_outlined),
-                            labelBackgroundColor:
-                                Theme.of(context).colorScheme.background,
-                            labelStyle: const TextStyle(
-                              fontFamily: "Roboto",
-                              fontSize: 18,
-                            ),
-                            label: ('Add New Routine'),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.background,
-                            elevation: 10,
-                            onTap: () {
-                              createNewWorkout(context);
-                            }),
-                        SpeedDialChild(
-                            child: const Icon(
-                              Icons.hourglass_empty,
-                            ),
-                            labelBackgroundColor:
-                                Theme.of(context).colorScheme.background,
-                            label: ('Start Empty Workout'),
-                            labelStyle: const TextStyle(
-                              fontFamily: "Roboto",
-                              fontSize: 18,
-                            ),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.background,
-                            elevation: 10,
-                            onTap: startEmptyWorkout),
-                      ],
-                    ),
-                  ],
-                ),
+            child: SpeedDial(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
+              foregroundColor: Theme.of(context).colorScheme.secondary,
+              animatedIcon: AnimatedIcons.add_event,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
+              overlayColor: Theme.of(context).colorScheme.background,
+              overlayOpacity: 0.9,
+              elevation: 0,
+              spaceBetweenChildren: 10,
+              animatedIconTheme: IconThemeData(
+                  color: Theme.of(context).colorScheme.background
+              ),
+              
+              children: [
+                SpeedDialChild(
+                    child: const Icon(Icons.add_chart_outlined),
+                    labelBackgroundColor:
+                        Theme.of(context).colorScheme.background,
+                    labelStyle: const TextStyle(
+                      fontFamily: "Roboto",
+                      fontSize: 18,
+                    ),
+                    label: ('Add New Routine'),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.background,
+                    elevation: 10,
+                    onTap: () {
+                      createNewWorkout(context);
+                    }),
+                SpeedDialChild(
+                    child: const Icon(
+                      Icons.hourglass_empty,
+                    ),
+                    labelBackgroundColor:
+                        Theme.of(context).colorScheme.background,
+                    label: ('Start Empty Workout'),
+                    labelStyle: const TextStyle(
+                      fontFamily: "Roboto",
+                      fontSize: 18,
+                    ),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.background,
+                    elevation: 10,
+                    onTap: startEmptyWorkout),
+              ],
             ),
           ),
         ),

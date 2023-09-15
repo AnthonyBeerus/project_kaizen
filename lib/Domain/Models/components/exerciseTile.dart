@@ -28,6 +28,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -45,8 +46,9 @@ class _ExerciseTileState extends State<ExerciseTile> {
           ),
           SizedBox(
             height: 120,
+            
             child: Card(
-              margin: const EdgeInsets.symmetric(vertical: 32),
+              margin: const EdgeInsets.symmetric(vertical: 22),
               color: Theme.of(context).colorScheme.secondaryContainer,
               child: Slidable(
                 endActionPane: ActionPane(

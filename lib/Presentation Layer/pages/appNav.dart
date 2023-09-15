@@ -3,6 +3,7 @@
 
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/rep_indicator.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/workout_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/home_screen.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/message_screen.dart';
@@ -29,7 +30,8 @@ class _AppNavState extends State<AppNav> {
     const Home(),
     const WorkoutScreen(),
     const MessageScreen(),
-    const SettingsScreen()
+    const SettingsScreen(),
+    const RepIndicatorUI(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -78,6 +80,11 @@ class _AppNavState extends State<AppNav> {
               icon: const Icon(Icons.stacked_line_chart_outlined),
               selectedColor: Theme.of(context).colorScheme.secondary,
           ),
+          DotNavigationBarItem(
+            icon: const Icon(Icons.timer),
+            selectedColor: Theme.of(context).colorScheme.secondary,
+          ),
+          
         ],
       ),
     );  

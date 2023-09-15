@@ -45,6 +45,7 @@ class _RepIndicatorState extends State<RepIndicatorUI> {
       onTap: _expandBox,
       onDoubleTap: _revertBox,
       child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           elevation: 0,
           leading: const Icon(Icons.menu),
@@ -60,31 +61,47 @@ class _RepIndicatorState extends State<RepIndicatorUI> {
           centerTitle: true,
           backgroundColor: Theme.of(context).colorScheme.background,
         ),
-        body: AnimatedContainer(
-          alignment: Alignment(boxX, boxY),
-          duration: const Duration(milliseconds: 1000),
-          curve: Curves.easeInOut,
+        body: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.zero,
+              bottomLeft: Radius.elliptical(10, 10),
+            ),
+          ),
           child: AnimatedContainer(
-            curve: Curves.easeInOutQuad,
+            alignment: Alignment(boxX, boxY),
             duration: const Duration(milliseconds: 1000),
-            height: boxHeight,
-            width: boxWidth,
-            color: Theme.of(context).colorScheme.secondary,
-            child: Center(
-              child: Text(
-                'R E P',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.background,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Roboto',
-                
+            curve: Curves.easeInOut,
+            child: AnimatedContainer(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.zero,
+                  bottomLeft: Radius.zero,
                 ),
-                textAlign: TextAlign.center,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              curve: Curves.easeInOutQuad,
+              duration: const Duration(milliseconds: 1000),
+              height: boxHeight,
+              width: boxWidth,
+              child: Center(
+                child: Text(
+                  'R E P',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.background,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Roboto',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
+          
         ),
+
+        
       ),
     );
   }

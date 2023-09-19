@@ -81,15 +81,14 @@ class _RoutineState extends State<Routine> {
                   .getReleventWorkout(widget.workoutName)
                   .exercises[index]
                   .isCompleted,
-              onCheckBoxChanged: (val) => {
+              onCheckBoxChanged: (val) => 
                 onCheckBoxChanged(
                   widget.workoutName,
                   value
                       .getReleventWorkout(widget.workoutName)
                       .exercises[index]
                       .name,
-                )
-              },
+              ),
             ),
             
           ),
@@ -153,6 +152,7 @@ class _RoutineState extends State<Routine> {
               
             ),
           ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
           backgroundColor: Theme.of(context).colorScheme.background,
         ),
       ),

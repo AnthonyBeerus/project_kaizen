@@ -35,13 +35,29 @@ class _ExerciseTileState extends State<ExerciseTile> {
   //* Function to show the bottom sheet for set type selection
   void setType(BuildContext context) {
     showModalBottomSheet(
+      backgroundColor: Theme.of(context).colorScheme.background,
         context: context,
         builder: (BuildContext context) {
-          return SizedBox(
+          return Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.background,
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(30.0)
+              ),
+            ),
+            
             height: 400,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                const Text(
+                  'S E T  T Y P E',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Roboto",
+                  ),
+                ),
                 ListTile(
                   title: const Text('Working Set'),
                   onTap: () {

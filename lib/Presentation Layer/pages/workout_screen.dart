@@ -4,7 +4,6 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
 import 'package:phenom_fitness/Presentation%20Layer/pages/routine.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-
 import 'package:provider/provider.dart';
 
 class WorkoutScreen extends StatefulWidget {

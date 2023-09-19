@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:phenom_fitness/Data/models/workout_data.dart';
 import 'package:phenom_fitness/Domain/Models/components/exerciseTile.dart';
+import 'package:phenom_fitness/Presentation%20Layer/pages/workout_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -20,18 +21,21 @@ class _RoutineState extends State<Routine> {
         .checkOffExercise(workoutName, exerciseName);
   }
 
-  //! Fix RenderFlex bug
   //* Make function for creating new exercise
   Future createNewExercise(BuildContext context) {
     return showModalBottomSheet(
-      context: context, 
-      builder: (BuildContext context) {
+        backgroundColor: Theme.of(context).colorScheme.background,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        ),
+        barrierColor: Colors.black.withOpacity(0.6),
+        context: context,
+        builder: (BuildContext context) {
           return const SizedBox(
             height: 500,
             child: Text('New Workout'),
-            
-        );
-      });
+          );
+        });
   }
 
   @override
@@ -42,8 +46,12 @@ class _RoutineState extends State<Routine> {
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.background,
             elevation: 0,
-            leading: Icon(
-              Icons.arrow_back_ios,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                const WorkoutScreen();
+                Navigator.of(context).pop();
+              },
               color: Theme.of(context).colorScheme.tertiary,
             ),
             title: Text(
@@ -55,6 +63,7 @@ class _RoutineState extends State<Routine> {
                 fontFamily: 'Roboto',
               ),
             ),
+            
             centerTitle: true,
             foregroundColor: Theme.of(context).colorScheme.tertiary,
           ),
@@ -81,18 +90,16 @@ class _RoutineState extends State<Routine> {
                   .getReleventWorkout(widget.workoutName)
                   .exercises[index]
                   .isCompleted,
-              onCheckBoxChanged: (val) => 
-                onCheckBoxChanged(
-                  widget.workoutName,
-                  value
-                      .getReleventWorkout(widget.workoutName)
-                      .exercises[index]
-                      .name,
+              onCheckBoxChanged: (val) => onCheckBoxChanged(
+                widget.workoutName,
+                value
+                    .getReleventWorkout(widget.workoutName)
+                    .exercises[index]
+                    .name,
               ),
             ),
-            
           ),
-          floatingActionButton:SizedBox(
+          floatingActionButton: SizedBox(
             height: 70,
             width: 70,
             child: Container(
@@ -130,8 +137,7 @@ class _RoutineState extends State<Routine> {
                 elevation: 0,
                 spaceBetweenChildren: 10,
                 animatedIconTheme: IconThemeData(
-                    color: Theme.of(context).colorScheme.background
-                ),
+                    color: Theme.of(context).colorScheme.background),
                 children: [
                   SpeedDialChild(
                     child: const Icon(Icons.add_circle),
@@ -144,15 +150,16 @@ class _RoutineState extends State<Routine> {
                     label: ('Add New Routine'),
                     backgroundColor: Theme.of(context).colorScheme.background,
                     elevation: 10,
-                    
+                    onTap: () {
+                      createNewExercise(context);
+                    },
                   ),
                 ],
               ),
-
-              
             ),
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.endContained,
           backgroundColor: Theme.of(context).colorScheme.background,
         ),
       ),

@@ -24,31 +24,57 @@ class ExerciseTile extends StatefulWidget {
 }
 
 class _ExerciseTileState extends State<ExerciseTile> {
+  //* Function to set the selected Set Type
+  void _setSelectedSetType(String setType) {
+    setState(() {
+      selectedSetType = setType;
+      // You can do something with the selected set type here
+    });
+  }
+  String selectedSetType = '';
+  //* Function to show the bottom sheet for set type selection
   void setType(BuildContext context) {
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return const SizedBox(
+          return SizedBox(
             height: 400,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
-                  title: Text('Working Set'),
+                  title: const Text('Working Set'),
+                  onTap: () {
+                  _setSelectedSetType('1');
+                  Navigator.pop(context);
+                  },
                 ),
                 ListTile(
-                  title: Text('Warmup Set'),
+                  title: const Text('Warmup Set'),
+                  onTap: () {
+                    _setSelectedSetType('W');
+                    Navigator.pop(context);
+                  },
                 ),
                 ListTile(
-                  title: Text('Failure Set'),
+                  title: const Text('Failure Set'),
+                  onTap: () {
+                    _setSelectedSetType('F');
+                    Navigator.pop(context);
+                  },
                 ),
                 ListTile(
-                  title: Text('Drop Set'),
+                  title: const Text('Drop Set'),
+                  onTap: () {
+                    _setSelectedSetType('D');
+                    Navigator.pop(context);
+                  },
                 ),
               ],
             ),
           );
-        });
+        }
+      );
   }
 
   @override
@@ -103,7 +129,14 @@ class _ExerciseTileState extends State<ExerciseTile> {
                       onPressed: () {
                         setType(context);
                       },
-                      child: const Text('1'),
+                      child: Text(
+                        selectedSetType.isNotEmpty
+                            ? selectedSetType // Display selected set type
+                            : '1', // Default value or initial value
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                     subtitle: SizedBox(
                       width: 70,

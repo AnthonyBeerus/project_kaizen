@@ -40,9 +40,18 @@ class _ExerciseTileState extends State<ExerciseTile> {
     showDialog(
       barrierColor: Colors.black.withOpacity(0.6),
       context: context,
-      builder: (context) => const AlertDialog(
-        title: Text('Sets?'),
-        content: Text('A Set...'),
+      builder: (context) => AlertDialog(
+        title: const Text('Sets?'),
+        content: const Text('A Set...'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Ok'),
+          ),
+        ],
+        
       ),
     );
   }
@@ -74,11 +83,8 @@ class _ExerciseTileState extends State<ExerciseTile> {
                   alignment: Alignment.center,
                   minimumSize: MaterialStateProperty.all(const Size(100, 50)),
                   maximumSize: MaterialStateProperty.all(const Size(100, 50)),
-                
                 ),
-                
                 child: const Text('OK'),
-
               ),
               TextButton(
                 onPressed: () {
@@ -135,6 +141,25 @@ class _ExerciseTileState extends State<ExerciseTile> {
       builder: (context) => AlertDialog(
         title: const Text('Repititon'),
         content: const Text('A rep is...'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Ok'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _completionTickDescription() {
+    showDialog(
+      barrierColor: Colors.black.withOpacity(0.6),
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Completion'),
+        content: const Text('Checkmark to track sets...'),
         actions: [
           TextButton(
             onPressed: () {
@@ -315,7 +340,6 @@ class _ExerciseTileState extends State<ExerciseTile> {
                   //*showcases type of set
                   onPressed: () {
                     _setDescription();
-                    
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
@@ -361,7 +385,9 @@ class _ExerciseTileState extends State<ExerciseTile> {
                 ),
                 //* IconButton for showing checked or unchecked set
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _completionTickDescription();
+                  },
                   icon: const Icon(Icons.check),
                 ),
               ),

@@ -24,6 +24,7 @@ class ExerciseTile extends StatefulWidget {
 }
 
 class _ExerciseTileState extends State<ExerciseTile> {
+//TODO Decouple all void functions
   //* Function to set the selected Set Type
   void _setSelectedSetType(String setType) {
     setState(() {
@@ -31,21 +32,138 @@ class _ExerciseTileState extends State<ExerciseTile> {
       // You can do something with the selected set type here
     });
   }
+
   String selectedSetType = '';
-  //* Function to show the bottom sheet for set type selection
-  void setType(BuildContext context) {
+  //* Function to show alert box when TextButton "Sets" is pressed
+  //TODO Fill out Content
+  void _setDescription() {
+    showDialog(
+      barrierColor: Colors.black.withOpacity(0.6),
+      context: context,
+      builder: (context) => const AlertDialog(
+        title: Text('Sets?'),
+        content: Text('A Set...'),
+      ),
+    );
+  }
+
+  //* function for Weighing system picker
+  //TODO Fix appearance of the buttons
+  void _weightDescription() {
+    showDialog(
+      barrierColor: Colors.black.withOpacity(0.6),
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Weight'),
+        content: const Text('Weight is...'),
+        actions: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Theme.of(context).colorScheme.secondary,
+                  ),
+                  foregroundColor: MaterialStateProperty.all(
+                    Theme.of(context).colorScheme.background,
+                  ),
+                  alignment: Alignment.center,
+                  minimumSize: MaterialStateProperty.all(const Size(100, 50)),
+                  maximumSize: MaterialStateProperty.all(const Size(100, 50)),
+                
+                ),
+                
+                child: const Text('OK'),
+
+              ),
+              TextButton(
+                onPressed: () {
+                  _weightSystemChange();
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Theme.of(context).colorScheme.primary,
+                  ),
+                  foregroundColor: MaterialStateProperty.all(
+                    Theme.of(context).colorScheme.background,
+                  ),
+                  alignment: Alignment.center,
+                  minimumSize: MaterialStateProperty.all(const Size(100, 50)),
+                  maximumSize: MaterialStateProperty.all(const Size(100, 50)),
+                ),
+                child: const Text('Change Weight System'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  //* Function for change Weighing System
+  //TODO add more functionality for picking between weight systems
+  void _weightSystemChange() {
     showModalBottomSheet(
-      backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        ),
+        barrierColor: Colors.black.withOpacity(0.6),
         context: context,
         builder: (BuildContext context) {
           return Container(
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.background,
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(30.0)
-              ),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(30.0)),
             ),
-            
+            height: 400,
+          );
+        });
+  }
+
+  //* Function for describing Reps
+  //TODO Fill out content
+  void _repDescription() {
+    showDialog(
+      barrierColor: Colors.black.withOpacity(0.6),
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Repititon'),
+        content: const Text('A rep is...'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Ok'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //* Function to show the bottom sheet for set type selection
+  //TODO Fix appearance
+  void setType(BuildContext context) {
+    showModalBottomSheet(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        ),
+        barrierColor: Colors.black.withOpacity(0.6),
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.background,
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(30.0)),
+            ),
             height: 400,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -58,39 +176,108 @@ class _ExerciseTileState extends State<ExerciseTile> {
                     fontFamily: "Roboto",
                   ),
                 ),
-                ListTile(
-                  title: const Text('Working Set'),
-                  onTap: () {
-                  _setSelectedSetType('1');
-                  Navigator.pop(context);
-                  },
+                Column(
+                  children: [
+                    ListTile(
+                      leading: const Text(
+                        '1',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      title: const Text('Working Set'),
+                      onTap: () {
+                        _setSelectedSetType('1');
+                        Navigator.pop(context);
+                      },
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.question_mark),
+                      ),
+                    ),
+                  ],
                 ),
-                ListTile(
-                  title: const Text('Warmup Set'),
-                  onTap: () {
-                    _setSelectedSetType('W');
-                    Navigator.pop(context);
-                  },
+                Column(
+                  children: [
+                    ListTile(
+                      leading: const Text(
+                        'W',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.amber,
+                        ),
+                      ),
+                      title: const Text(
+                        'Warmup Set',
+                      ),
+                      onTap: () {
+                        _setSelectedSetType('W');
+                        Navigator.pop(context);
+                      },
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.question_mark),
+                      ),
+                    ),
+                  ],
                 ),
-                ListTile(
-                  title: const Text('Failure Set'),
-                  onTap: () {
-                    _setSelectedSetType('F');
-                    Navigator.pop(context);
-                  },
+                Column(
+                  children: [
+                    ListTile(
+                      leading: const Text(
+                        'F',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.redAccent,
+                        ),
+                      ),
+                      title: const Text('Failure Set'),
+                      onTap: () {
+                        _setSelectedSetType('F');
+                        Navigator.pop(context);
+                      },
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.question_mark),
+                      ),
+                    ),
+                  ],
                 ),
-                ListTile(
-                  title: const Text('Drop Set'),
-                  onTap: () {
-                    _setSelectedSetType('D');
-                    Navigator.pop(context);
-                  },
+                Column(
+                  children: [
+                    ListTile(
+                      leading: const Text(
+                        'D',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueAccent,
+                        ),
+                      ),
+                      title: const Text('Drop Set'),
+                      onTap: () {
+                        _setSelectedSetType('D');
+                        Navigator.pop(context);
+                      },
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.question_mark),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           );
-        }
-      );
+        });
   }
 
   @override
@@ -119,6 +306,66 @@ class _ExerciseTileState extends State<ExerciseTile> {
                 ),
               ),
             ),
+            Card(
+              color: Theme.of(context).colorScheme.secondaryContainer,
+              child: ListTile(
+                contentPadding: const EdgeInsets.only(right: 10.0),
+
+                leading: TextButton(
+                  //*showcases type of set
+                  onPressed: () {
+                    _setDescription();
+                    
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Theme.of(context).colorScheme.secondaryContainer),
+                  ),
+                  child: const Text(
+                    'SETS', // Default value or initial value
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                subtitle: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    //* TextButton for picking and showing Metric or Imperial system
+                    TextButton(
+                      onPressed: () {
+                        _weightDescription();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.secondaryContainer),
+                      ),
+                      child: const Text(
+                        'KGs',
+                      ),
+                    ),
+                    //* TextButton for describing reps
+                    TextButton(
+                      onPressed: () {
+                        _repDescription();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.secondaryContainer),
+                      ),
+                      child: const Text(
+                        'REPS',
+                      ),
+                    ),
+                  ],
+                ),
+                //* IconButton for showing checked or unchecked set
+                trailing: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.check),
+                ),
+              ),
+            ),
             //*Set card
             //TODO Make this card reuseable and duplicatable upon pressing the Add set button
             Card(
@@ -140,6 +387,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
                 child: Padding(
                   padding: const EdgeInsets.all(0.0),
                   child: ListTile(
+                    contentPadding: const EdgeInsets.only(right: 10.0),
                     leading: TextButton(
                       //*showcases type of set
                       onPressed: () {
@@ -155,7 +403,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
                       ),
                     ),
                     subtitle: SizedBox(
-                      width: 70,
+                      width: 50,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -166,10 +414,6 @@ class _ExerciseTileState extends State<ExerciseTile> {
                           Chip(
                             padding: const EdgeInsets.all(5),
                             label: Text('${widget.reps}reps'),
-                          ),
-                          Chip(
-                            padding: const EdgeInsets.all(5),
-                            label: Text('${widget.sets}sets'),
                           ),
                         ],
                       ),

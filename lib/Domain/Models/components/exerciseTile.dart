@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:phenom_fitness/Presentation%20Layer/Utilities/alert_dialog.dart';
+import 'package:phenom_fitness/Presentation%20Layer/Utilities/alert_dialog_design.dart';
+import 'package:phenom_fitness/Presentation%20Layer/Utilities/set_description_dialog.dart';
 import 'package:phenom_fitness/Presentation%20Layer/Utilities/text_button.dart';
 
+// ignore: must_be_immutable
 class ExerciseTile extends StatefulWidget {
   final String exerciseName;
   final String weight;
@@ -38,24 +40,6 @@ class _ExerciseTileState extends State<ExerciseTile> {
   String selectedSetType = '';
   //* Function to show alert box when TextButton "Sets" is pressed
   //TODO Fill out Content
-  void _setDescription(BuildContext context) {
-    AlertDialogUtils.showAlertDialog(
-      title: 'Sets',
-      content: 'A Set...',
-      context: context,
-      actions: [
-        TextButtonUtils.buildTextButton(
-          label: 'OK',
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          context: context,
-          minimumSize: MaterialStateProperty.all(const Size(62, 40)),
-          maxmumSize: MaterialStateProperty.all(const Size(62, 40)),
-        ),
-      ],
-    );
-  }
 
   //* function for Weighing system picker
   //TODO Fix appearance of the buttons
@@ -82,8 +66,8 @@ class _ExerciseTileState extends State<ExerciseTile> {
           context: context,
           minimumSize: MaterialStateProperty.all(const Size(120, 40)),
           maxmumSize: MaterialStateProperty.all(const Size(150, 40)),
-        ),  
-      ],  
+        ),
+      ],
     );
   }
 
@@ -317,11 +301,11 @@ class _ExerciseTileState extends State<ExerciseTile> {
                   //*showcases type of set
                   label: 'SETS',
                   onPressed: () {
-                    _setDescription(context);
+                    SetDescriptionUtil().setDescription(context);
                   },
                   context: context,
                   minimumSize: MaterialStateProperty.all(const Size(62, 40)),
-                  maxmumSize: MaterialStateProperty.all(const Size(62, 40)),           
+                  maxmumSize: MaterialStateProperty.all(const Size(62, 40)),
                 ),
                 subtitle: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

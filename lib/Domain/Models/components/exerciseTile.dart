@@ -321,7 +321,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
                   },
                   context: context,
                   minimumSize: MaterialStateProperty.all(const Size(62, 40)),
-                  maxmumSize: MaterialStateProperty.all(const Size(62, 40)),
+                  maxmumSize: MaterialStateProperty.all(const Size(62, 40)),           
                 ),
                 subtitle: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

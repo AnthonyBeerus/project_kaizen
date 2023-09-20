@@ -7,10 +7,9 @@ class TextButtonUtils {
     required BuildContext context,
     required MaterialStateProperty<Size?> minimumSize,
     required MaterialStateProperty<Size?> maxmumSize,
-    
   }) {
     return TextButton(
-      onPressed: onPressed, 
+      onPressed: onPressed,
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(
           Theme.of(context).colorScheme.secondaryContainer,
@@ -31,3 +30,5 @@ class TextButtonUtils {
     );
   }
 }
+
+

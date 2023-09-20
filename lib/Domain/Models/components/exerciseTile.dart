@@ -347,6 +347,13 @@ class _ExerciseTileState extends State<ExerciseTile> {
                 ),
               ),
             ),
+            Divider(
+              height: 20,
+              thickness: 1,
+              color: Theme.of(context).colorScheme.background,
+              indent: 12,
+              endIndent: 12,
+            ),
             //*Set card
             //TODO Make this card reuseable and duplicatable upon pressing the Add set button
             Card(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:phenom_fitness/Presentation%20Layer/Utilities/alert_dialog.dart';
 import 'package:phenom_fitness/Presentation%20Layer/Utilities/text_button.dart';
 
 class ExerciseTile extends StatefulWidget {
@@ -37,57 +38,52 @@ class _ExerciseTileState extends State<ExerciseTile> {
   String selectedSetType = '';
   //* Function to show alert box when TextButton "Sets" is pressed
   //TODO Fill out Content
-  void _setDescription() {
-    showDialog(
-      barrierColor: Colors.black.withOpacity(0.6),
+  void _setDescription(BuildContext context) {
+    AlertDialogUtils.showAlertDialog(
+      title: 'Sets',
+      content: 'A Set...',
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Sets?'),
-        content: const Text('A Set...'),
-        actions: [
-          TextButtonUtils.buildTextButton(
-            label: 'OK',
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            context: context,
-          ),
-        ],
-      ),
+      actions: [
+        TextButtonUtils.buildTextButton(
+          label: 'OK',
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          context: context,
+          minimumSize: MaterialStateProperty.all(const Size(62, 40)),
+          maxmumSize: MaterialStateProperty.all(const Size(62, 40)),
+        ),
+      ],
     );
   }
 
   //* function for Weighing system picker
   //TODO Fix appearance of the buttons
-  void _weightDescription() {
-    showDialog(
-      barrierColor: Colors.black.withOpacity(0.6),
+  void _weightDescription(BuildContext context) {
+    AlertDialogUtils.showAlertDialog(
+      title: 'Weight',
+      content: 'Weight is...',
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Weight'),
-        content: const Text('Weight is...'),
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButtonUtils.buildTextButton(
-                label: 'Ok',
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                context: context,
-              ),
-              TextButtonUtils.buildTextButton(
-                label: 'Change Weight Units',
-                onPressed: () {
-                  _weightSystemChange();
-                },
-                context: context,
-              ),
-            ],
-          ),
-        ],
-      ),
+      actions: [
+        TextButtonUtils.buildTextButton(
+          label: 'Ok',
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          context: context,
+          minimumSize: MaterialStateProperty.all(const Size(62, 40)),
+          maxmumSize: MaterialStateProperty.all(const Size(62, 40)),
+        ),
+        TextButtonUtils.buildTextButton(
+          label: 'Change Weight Units',
+          onPressed: () {
+            _weightSystemChange();
+          },
+          context: context,
+          minimumSize: MaterialStateProperty.all(const Size(120, 40)),
+          maxmumSize: MaterialStateProperty.all(const Size(150, 40)),
+        ),  
+      ],  
     );
   }
 
@@ -317,21 +313,15 @@ class _ExerciseTileState extends State<ExerciseTile> {
               child: ListTile(
                 contentPadding: const EdgeInsets.only(right: 10.0),
 
-                leading: TextButton(
+                leading: TextButtonUtils.buildTextButton(
                   //*showcases type of set
+                  label: 'SETS',
                   onPressed: () {
-                    _setDescription();
+                    _setDescription(context);
                   },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Theme.of(context).colorScheme.secondaryContainer),
-                  ),
-                  child: const Text(
-                    'SETS', // Default value or initial value
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  context: context,
+                  minimumSize: MaterialStateProperty.all(const Size(62, 40)),
+                  maxmumSize: MaterialStateProperty.all(const Size(62, 40)),
                 ),
                 subtitle: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -339,7 +329,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
                     //* TextButton for picking and showing Metric or Imperial system
                     TextButton(
                       onPressed: () {
-                        _weightDescription();
+                        _weightDescription(context);
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(

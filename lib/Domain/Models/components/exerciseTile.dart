@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:phenom_fitness/Presentation%20Layer/Utilities/text_button.dart';
 
 class ExerciseTile extends StatefulWidget {
   final String exerciseName;
@@ -44,14 +45,14 @@ class _ExerciseTileState extends State<ExerciseTile> {
         title: const Text('Sets?'),
         content: const Text('A Set...'),
         actions: [
-          TextButton(
+          TextButtonUtils.buildTextButton(
+            label: 'OK',
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text('Ok'),
+            context: context,
           ),
         ],
-        
       ),
     );
   }
@@ -66,42 +67,22 @@ class _ExerciseTileState extends State<ExerciseTile> {
         title: const Text('Weight'),
         content: const Text('Weight is...'),
         actions: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              TextButton(
+              TextButtonUtils.buildTextButton(
+                label: 'Ok',
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.secondary,
-                  ),
-                  foregroundColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.background,
-                  ),
-                  alignment: Alignment.center,
-                  minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-                  maximumSize: MaterialStateProperty.all(const Size(100, 50)),
-                ),
-                child: const Text('OK'),
+                context: context,
               ),
-              TextButton(
+              TextButtonUtils.buildTextButton(
+                label: 'Change Weight Units',
                 onPressed: () {
                   _weightSystemChange();
                 },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.primary,
-                  ),
-                  foregroundColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.background,
-                  ),
-                  alignment: Alignment.center,
-                  minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-                  maximumSize: MaterialStateProperty.all(const Size(100, 50)),
-                ),
-                child: const Text('Change Weight System'),
+                context: context,
               ),
             ],
           ),

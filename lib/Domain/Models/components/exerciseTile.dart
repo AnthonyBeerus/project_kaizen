@@ -349,7 +349,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
             ),
             Divider(
               height: 20,
-              thickness: 1,
+              thickness: 2,
               color: Theme.of(context).colorScheme.background,
               indent: 12,
               endIndent: 12,

@@ -5,6 +5,9 @@ class TextButtonUtils {
     required String label,
     required VoidCallback onPressed,
     required BuildContext context,
+    required MaterialStateProperty<Size?> minimumSize,
+    required MaterialStateProperty<Size?> maxmumSize,
+    
   }) {
     return TextButton(
       onPressed: onPressed, 
@@ -16,8 +19,8 @@ class TextButtonUtils {
           Theme.of(context).colorScheme.primary,
         ),
         alignment: Alignment.center,
-        minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-        maximumSize: MaterialStateProperty.all(const Size(100, 50)),
+        minimumSize: minimumSize,
+        maximumSize: maxmumSize,
       ),
       child: Text(
         label,

@@ -22,7 +22,7 @@ class _RoutineState extends State<Routine> {
   }
 
   //* Make function for creating new exercise
-  Future createNewExercise(BuildContext context) {
+  Future addExecrise(BuildContext context) {
     return showModalBottomSheet(
         backgroundColor: Theme.of(context).colorScheme.background,
         shape: const RoundedRectangleBorder(
@@ -31,9 +31,18 @@ class _RoutineState extends State<Routine> {
         barrierColor: Colors.black.withOpacity(0.6),
         context: context,
         builder: (BuildContext context) {
-          return const SizedBox(
-            height: 500,
-            child: Text('New Workout'),
+          return Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.background,
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(30.0)),
+            ),
+            height: 400,
+            child: const Text('Add Execrise',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
           );
         });
   }
@@ -147,11 +156,11 @@ class _RoutineState extends State<Routine> {
                       fontFamily: "Roboto",
                       fontSize: 18,
                     ),
-                    label: ('Add New Routine'),
+                    label: ('Add Execrise'),
                     backgroundColor: Theme.of(context).colorScheme.background,
                     elevation: 10,
                     onTap: () {
-                      createNewExercise(context);
+                      addExecrise(context);
                     },
                   ),
                 ],

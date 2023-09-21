@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:phenom_fitness/Presentation%20Layer/Utilities/alert_dialog_design.dart';
+import 'package:phenom_fitness/Presentation%20Layer/Utilities/bottom_sheet_design.dart';
 import 'package:phenom_fitness/Presentation%20Layer/Utilities/set_description_dialog.dart';
 import 'package:phenom_fitness/Presentation%20Layer/Utilities/text_button.dart';
 
@@ -419,6 +420,14 @@ class _ExerciseTileState extends State<ExerciseTile> {
               child: ElevatedButton(
                 onPressed: () {
                   // Handle button press here
+                  BottomSheetUtil.showModalBottomSheet( 
+                    title: 'lol',
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(30)),
+                    ), 
+                  );
                 },
                 child: const Text("+ Add Set"),
               ),
